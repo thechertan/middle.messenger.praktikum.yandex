@@ -1,0 +1,29 @@
+.popup__form-submit {
+  font-family: "Inter", Arial, sans-serif;
+  text-align: center;
+  outline: none;
+  border: 0;
+  width: 280px;
+  align-items: center;
+  background: #3369f3;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  margin: 0 auto 40px;
+  cursor: pointer;
+  transition: 0.5s;
+  padding: 12px 0;
+}
+
+.popup__form-submit:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__form-submit {
+    width: 260px;
+  }
+}

@@ -1,0 +1,54 @@
+.profile__input {
+  box-sizing: border-box;
+  padding: 0;
+  outline: 0;
+  outline-offset: 0;
+  border: none;
+}
+
+.profile__input::placeholder {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: right;
+  color: #999999;
+}
+
+.profile__input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */
+  -webkit-text-fill-color: #999999 !important; /* цвет текста */
+  color: #999999 !important; /* цвет текста */
+  text-align: right;
+}
+
+.profile__input[type="text"] {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: right;
+  color: #999999;
+}
+
+.profile__input[type="email"] {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: right;
+  color: #999999;
+}
+
+.profile__input[type="password"] {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: right;
+  color: #999999;
+}

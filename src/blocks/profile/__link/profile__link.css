@@ -1,0 +1,15 @@
+.profile__link {
+  font-family: "Inter", Arial, sans-serif;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  color: #3369f3;
+  transition: 0.5s;
+}
+
+.profile__link:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 0.5;
+}

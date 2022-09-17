@@ -1,0 +1,6 @@
+.profile__elipse_change:hover {
+  cursor: pointer;
+  transition-timing-function: ease-in-out;
+  background: #000000;
+  opacity: 0.5;
+}

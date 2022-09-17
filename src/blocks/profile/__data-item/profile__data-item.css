@@ -1,0 +1,10 @@
+.profile__data-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.profile__data-item:last-of-type {
+  border: none;
+}

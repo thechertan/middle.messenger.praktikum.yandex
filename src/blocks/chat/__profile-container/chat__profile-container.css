@@ -1,0 +1,14 @@
+.chat__profile-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin-top: 21px;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  margin-bottom: 23px;
+}
+
+.chat__profile-container:hover {
+  opacity: 0.5;
+}

@@ -1,0 +1,8 @@
+.profile__setings-item {
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px 0;
+}
+
+.profile__setings-item:last-of-type {
+  border: none;
+}

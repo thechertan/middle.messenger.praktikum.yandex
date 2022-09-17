@@ -1,0 +1,26 @@
+.popup__close {
+  position: absolute;
+  width: 32px;
+  margin-right: 32px;
+  object-fit: cover;
+  top: -40px;
+  right: -40px;
+  cursor: pointer;
+  transition: .5s;
+  transition-timing-function: ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+.popup__close:hover{
+  opacity: 0.6;
+}
+
+@media screen and (max-width: 1023px) {
+  .popup__close{
+    width: 20px;
+    min-height: 20px;
+    top: -36px;
+    right: 0px;
+  }
+}

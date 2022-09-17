@@ -1,0 +1,7 @@
+.chat__footer-options-choice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  padding: 0;
+}

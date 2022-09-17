@@ -1,0 +1,6 @@
+.chat__content-message-sender-image {
+  width: 316px;
+  height: 211px;
+  object-fit: cover;
+  border-radius: 12px;
+}

@@ -1,0 +1,11 @@
+.chat__footer-send {
+  margin-left: 10px;
+  transform: rotate(180deg);
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.chat__footer-send:hover {
+  opacity: 0.5;
+}

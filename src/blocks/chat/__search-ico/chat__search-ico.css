@@ -1,0 +1,10 @@
+.chat__search-ico {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-image: url(../../../image/__search-icon.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  top: 7px;
+  left: 105px;
+}

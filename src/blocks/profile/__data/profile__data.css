@@ -1,0 +1,8 @@
+.profile__data {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  list-style-type: none;
+}

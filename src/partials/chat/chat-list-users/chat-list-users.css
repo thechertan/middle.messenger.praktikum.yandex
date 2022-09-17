@@ -1,0 +1,24 @@
+@import url(../../../blocks/chat/chat.css);
+@import url(../../../blocks/chat/__users/chat__users.css);
+@import url(../../../blocks/chat/__profile-container/chat__profile-container.css);
+@import url(../../../blocks/chat/__link-profile/chat__link-profile.css);
+@import url(../../../blocks/chat/__profile-icon/chat__profile-icon.css);
+@import url(../../../blocks/chat/__search/chat__search.css);
+@import url(../../../blocks/chat/__search-input/chat__search-input.css);
+@import url(../../../blocks/chat/__search-span-position/chat__search-span-position.css);
+@import url(../../../blocks/chat/__search-ico/chat__search-ico.css);
+@import url(../../../blocks/chat/__search-ico/_active/chat__search-ico_active.css);
+@import url(../../../blocks/chat/__list-users/chat__list-users.css);
+@import url(../../../blocks/chat/__list/chat__list.css);
+@import url(../../../blocks/chat/__list-item/chat__list-item.css);
+
+@import url(../../../blocks/chat/__avatar-ico/chat__avatar-ico.css);
+@import url(../../../blocks/chat/__user-info/chat__user-info.css);
+@import url(../../../blocks/chat/__user-name/chat__user-name.css);
+@import url(../../../blocks/chat/__message/chath__message.css);
+@import url(../../../blocks/chat/__push/chat__push.css);
+@import url(../../../blocks/chat/__time/chat__time.css);
+@import url(../../../blocks/chat/__count-message/chat__count-message.css);
+@import url(../../../blocks/chat/__count-message/_active/chat__count-message_active.css);
+@import url(../../../blocks/chat/__remove-position/chat__remove-position.css);
+@import url(../../../blocks/chat/__remove/chat__remove.css);

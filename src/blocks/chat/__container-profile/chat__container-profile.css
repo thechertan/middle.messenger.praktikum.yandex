@@ -1,0 +1,5 @@
+.chat__container-profile {
+  display: flex;
+  border-bottom: 1px solid #eaeaea;
+  justify-content: space-between;
+}

@@ -1,0 +1,16 @@
+.popup__submit-button_inactive {
+  color: #c4c4c4;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 8px;
+  cursor: default;
+}
+
+.popup__submit-button_inactive:hover,
+.popup__submit-button_inactive:active,
+.popup__submit-button_inactive:focus {
+  background-color: #fff;
+  color: #c4c4c4;
+}

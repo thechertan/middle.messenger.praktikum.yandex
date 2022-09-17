@@ -1,0 +1,10 @@
+.profile__error_input {
+  top: 25px;
+  left: 155px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__error_input{
+    left: 67px;
+  }
+}

@@ -1,0 +1,7 @@
+.chat__users {
+  display: flex;
+  width: 310px;
+  flex-direction: column;
+  background-color: #fbfbfb;
+  border-right: 1px solid #eaeaea;
+}

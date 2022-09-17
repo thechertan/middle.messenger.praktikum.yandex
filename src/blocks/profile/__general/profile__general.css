@@ -1,0 +1,19 @@
+.profile__general {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  color: #1e1e1e;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 167px;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__general {
+    width: 100px;
+  }
+}

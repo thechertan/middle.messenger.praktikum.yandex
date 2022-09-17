@@ -1,0 +1,114 @@
+<section class="register">
+  <div class="register__container">
+    <h1 class="register__welcome">Регистрация</h1>
+    <form class="register__form">
+      <fieldset class="register__fieldset register__fieldset_register">
+
+        <div class="register__box">
+          <label for="email" class="register__label">Почта</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="register__input"
+            required
+           />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="login" class="register__label">Логин</label>
+          <input 
+          class="register__input" 
+          id="login" 
+          name="login"
+          type="text"
+          required
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="first_name" class="register__label">Имя</label>
+          <input 
+          class="register__input" 
+          id="first_name" 
+          name="first_name"
+          type="text"
+          required
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="second_name" class="register__label">Фамилия</label>
+          <input 
+          class="register__input" 
+          id="second_name" 
+          name="second_name"
+          type="text"
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="phone" class="register__label">Телефон</label>
+          <input 
+          class="register__input" 
+          id="phone" 
+          name="phone"
+          type="text"
+          required
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="password" class="register__label">Пароль</label>
+          <input 
+          class="register__input" 
+          id="password" 
+          name="password"
+          type="password"
+          required
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+
+        <div class="register__box">
+          <label for="password-confirm" class="register__label">Пароль (ещё раз)</label>
+          <input 
+          class="register__input" 
+          id="password" 
+          name="password"
+          type="password"
+          required
+          />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+      </fieldset>
+      <button
+        type="submit"
+        name="save"
+        class="register__form-submit"
+      >Зарегистрироваться</button>
+      <div class="register__span-error">
+        <span class="register__error register__error_center">Текст ошибки</span>
+      </div>
+    </form>
+      <a href="./login.hbs" class="register__link">Войти</a>
+</div>
