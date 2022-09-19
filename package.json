@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "parcel src/pages/**/*.hbs --no-cache",
     "devexpress": "nodemon app.js",
-    "start": "npx parcel build ./src/pages/**/*.hbs --no-cache && node ./app.js"
+    "start": "npx parcel build ./src/pages/**/*.hbs --no-cache && node ./app.js", 
+    "prod": "parcel src/pages/**/*.hbs --no-cache && npm i"
   },
   "keywords": [],
   "author": "",
