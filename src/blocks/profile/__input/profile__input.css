@@ -17,9 +17,9 @@
 }
 
 .profile__input:-webkit-autofill {
-  -webkit-box-shadow: inset 0 0 0 50px #fff !important; /* Цвет фона */
-  -webkit-text-fill-color: #999999 !important; /* цвет текста */
-  color: #999999 !important; /* цвет текста */
+  -webkit-box-shadow: inset 0 0 0 50px #fff; /* Цвет фона */
+  -webkit-text-fill-color: #999999; /* цвет текста */
+  color: #999999; /* цвет текста */
   text-align: right;
 }
 
