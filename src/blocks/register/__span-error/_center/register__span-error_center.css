@@ -1,0 +1,9 @@
+.register__span-error_center {
+  top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .register__span-error_center {
+  
+  }
+}

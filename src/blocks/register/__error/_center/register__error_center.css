@@ -1,0 +1,10 @@
+.register__error_center {
+  right: 146px;
+  top: 5px;
+}
+
+@media screen and (max-width: 767px) {
+  .register__error_center {
+    right: 126px;
+  }
+}

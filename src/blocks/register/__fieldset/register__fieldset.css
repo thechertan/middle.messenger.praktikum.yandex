@@ -1,0 +1,12 @@
+.register__fieldset {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  margin-bottom: 159px;
+}
+

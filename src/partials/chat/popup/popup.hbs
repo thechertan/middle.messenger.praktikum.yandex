@@ -1,0 +1,33 @@
+<!--Чтобы открыть попап нужно добавить клас  popup_opened-->
+<div class="popup popup_type-edit-profile">
+  <div class="popup__container">
+    <button class="popup__button-close" name="close" type="button"></button>
+    <div class="popup__content">
+      <h2 class="popup__title">Добавить пользователя</h2>
+      <form
+        class="popup__form popup_type-edit-avatar"
+        name="popupForm-edit"
+        novalidate
+      >
+        <fieldset class="popup__fieldset">
+          <label class="popup__label-chat" for="login">
+            Логин
+          </label>
+          <input
+            class="popup__input-chat-login"
+            type="text"
+            name="login"
+            id="login"
+            required
+          />
+          <button type="submit" name="save" class="popup__form-submit">
+            Добавить
+          </button>
+          <div class="popup__span-error">
+            <span class="popup__error">Нужно ввести логин</span>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

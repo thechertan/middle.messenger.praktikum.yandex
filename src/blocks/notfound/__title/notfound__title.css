@@ -1,0 +1,11 @@
+.notfound__title {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #1e1e1e;
+}

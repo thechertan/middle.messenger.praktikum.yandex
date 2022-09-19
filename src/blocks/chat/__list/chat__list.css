@@ -1,0 +1,7 @@
+.chat__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 0;
+  padding-left: 0;
+}

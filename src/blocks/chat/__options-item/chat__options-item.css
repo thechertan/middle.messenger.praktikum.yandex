@@ -1,0 +1,17 @@
+.chat__options-item {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  margin-bottom: 16px;
+}
+
+.chat__options-item:hover {
+  opacity: 0.5;
+}
+
+.chat__options-item:last-of-type {
+  margin-bottom: 0px;
+}

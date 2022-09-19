@@ -1,0 +1,8 @@
+.profile__fieldset {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: none;
+  flex-direction: column;
+}

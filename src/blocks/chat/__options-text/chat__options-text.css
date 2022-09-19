@@ -1,0 +1,13 @@
+.chat__options-text {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #1e1e1e;
+  margin-left: 15px;
+  text-align: left;
+  margin: auto auto auto 10px;
+}

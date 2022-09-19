@@ -1,0 +1,6 @@
+.chat__not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+}

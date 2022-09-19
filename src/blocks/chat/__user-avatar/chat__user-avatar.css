@@ -1,0 +1,8 @@
+.chat__user-avatar {
+  background-image: url(../../../image/__default-avatar-message.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 37px;
+  height: 37px;
+  margin-right: 10px;
+}

@@ -1,0 +1,10 @@
+.chat__profile-icon {
+  width: 4px;
+  height: 8px;
+  background-image: url(../../../image/__profile.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  margin: auto 0;
+  margin-right: 10px;
+}

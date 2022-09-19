@@ -1,0 +1,16 @@
+.profile__back-button {
+  display: flex;
+  background-image: url(../../../image/__button-back.svg);
+  background-repeat: no-repeat;
+  margin: auto;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  transition: 0.5s;
+  
+}
+
+.profile__back-button:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 0.5;
+}

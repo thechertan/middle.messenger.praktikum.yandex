@@ -1,0 +1,16 @@
+.chat__message {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: #1e1e1e;
+  margin-top: 4px;
+  text-align: justify;
+  height: 30px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: wrap;
+}

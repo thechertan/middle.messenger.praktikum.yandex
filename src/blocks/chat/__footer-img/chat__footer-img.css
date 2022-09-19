@@ -1,0 +1,14 @@
+.chat__footer-img {
+  object-fit: cover;
+  width: 32px;
+  height: 32px;
+  margin: 10px 0;
+  margin-right: 10px;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.chat__footer-img:hover {
+  opacity: 0.5;
+}

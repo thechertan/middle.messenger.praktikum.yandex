@@ -1,0 +1,16 @@
+.chat__list-item {
+  background-color: #fbfbfb;
+  list-style-type: none;
+  border-top: 1px solid #eaeaea;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 310px;
+  cursor: pointer;
+}
+
+.chat__list-item:hover {
+  background-color: #e4edfd;
+}

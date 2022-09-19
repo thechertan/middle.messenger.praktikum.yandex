@@ -1,0 +1,32 @@
+<section class="register">
+  <div class="register__container">
+    <h1 class="register__welcome">Вход</h1>
+    <form class="register__form">
+      <fieldset class="register__fieldset">
+        <div class="register__box">
+          <label for="login" class="register__label">E-mail</label>
+          <input id="login" type="email" name="login" class="register__input" />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+        <div class="register__box">
+          <label for="password" class="register__label">Пароль</label>
+          <input class="register__input" id="password" name="password" />
+        </div>
+        <div class="register__span-error">
+          <span class="register__error">Текст ошибки</span>
+        </div>
+      </fieldset>
+      <button
+        type="submit"
+        name="save"
+        class="register__form-submit register__form-submit_login"
+      >Авторизоваться</button>
+      <div class="register__span-error">
+        <span class="register__error register__error_center">Текст ошибки</span>
+      </div>
+    </form>
+    <a href="./register.hbs" class="register__link">Нет аккаунта?</a>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+.register__box {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  width: 280px;
+}
+
+.register__box:last-of-type {
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .register__box {
+    width: 260px;
+  }
+}

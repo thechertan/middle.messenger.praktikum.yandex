@@ -1,0 +1,16 @@
+.notfound__link-back {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 11px;
+  text-align: center;
+  color: #3369f3;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.notfound__link-back:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 0.5;
+}

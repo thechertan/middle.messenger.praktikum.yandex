@@ -1,0 +1,16 @@
+.chat__remove {
+  position: absolute;
+  background-image: url(../../../image/__remove.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 13px;
+  height: 13px;
+  left: 290px;
+  top: -10px;
+  transition: 0.5s;
+}
+
+.chat__remove:hover {
+  transition-timing-function: ease-in-out;
+  opacity: 0.5;
+}

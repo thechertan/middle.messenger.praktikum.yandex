@@ -1,0 +1,20 @@
+.popup__input-chat-login {
+  border: none;
+  outline: none;
+  margin-bottom: 33px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.popup__input-chat-login[type="text"] {
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  color: #1e1e1e;
+  padding-bottom: 7px;
+}
+
+.popup__input-chat-login:focus {
+  border-bottom: 1px solid #3369f3;
+}

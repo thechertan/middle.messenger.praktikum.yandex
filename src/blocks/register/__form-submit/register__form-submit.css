@@ -1,0 +1,36 @@
+.register__form-submit {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #3369f3;
+  border-radius: 8px;
+  border: none;
+  padding: 12px 0 12px;
+  cursor: pointer;
+  margin-bottom: 14px;
+  width: 280px;
+  margin: 0 auto;
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+  .register__form-submit {
+    width: 260px;
+  }
+}
+
+.register__form-submit:disabled {
+  transition-timing-function: ease-in-out;
+  background-color: #e8e8e8;
+  color: #3369f3;
+}
+
+.register__form-submit:not([disabled]):hover {
+  background-color: #0349f8;
+}
