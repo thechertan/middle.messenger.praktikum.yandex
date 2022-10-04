@@ -5,19 +5,37 @@
   "scripts": {
     "dev": "parcel src/pages/**/*.hbs --no-cache",
     "devexpress": "nodemon app.js",
-    "start": "npx parcel build ./src/pages/**/*.hbs --no-cache && node ./app.js", 
-    "netlify": "parcel build src/pages/**/*.hbs --no-cache && npm i"
+    "start": "npx parcel build ./src/pages/**/*.hbs --no-cache && node ./app.js",
+    "netlify": "parcel build src/pages/**/*.hbs --no-cache && npm i",
+    "newdev": "parcel src/index.html --no-cache",
+    "lint": "npx eslint ./src --ext ts --fix"
+  },
+  "alias": {
+    "core": "./src/core",
+    "components": "./src/components",
+    "helpers": "./src/helpers",
+    "pages": ".src/pages",
+    "image": "./src/image"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "^1.0.2",
-    "parcel": "2.7.0"
+    "@types/node": "^18.7.21",
+    "@typescript-eslint/eslint-plugin": "^5.39.0",
+    "@typescript-eslint/parser": "^5.39.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "parcel": "2.7.0",
+    "parcel-plugin-handlebars-precompile": "^1.0.2",
+    "postcss-import": "^12.0.1",
+    "typescript": "^4.8.3"
   },
   "dependencies": {
+    "babel-core": "^6.26.3",
     "express": "4.18.1",
     "helmet": "^6.0.0",
+    "nanoid": "^4.0.0",
     "nodemon": "^2.0.20"
   }
 }

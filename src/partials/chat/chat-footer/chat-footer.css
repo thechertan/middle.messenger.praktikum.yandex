@@ -6,7 +6,7 @@
 @import url(../../../blocks/chat/__footer-send/chat__footer-send.css);
 @import url(../../../blocks/chat/__footer-box/chat__footer-box.css);
 @import url(../../../blocks/chat/__footer-options/chat__footer-options.css);
-@import url(../../../blocks/chat/__footer-options/_opened/chat__footer-options_opened.css);
+@import url(../../../blocks/chat/__footer-options/_opened/opened.css);
 @import url(../../../blocks/chat/__footer-options-choice/chat__footer-options-choice.css);
 @import url(../../../blocks/chat/__footer-options-item/chat__footer-options-item.css);
 @import url(../../../blocks/chat/__button-icon/_fix/chat__button-icon_fix.css);
