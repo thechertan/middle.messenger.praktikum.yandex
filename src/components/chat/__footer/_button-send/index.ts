@@ -1,1 +1,1 @@
-export { ChatButtonSend as default } from './chat-button-send';
+export { ChatButtonSend } from "./chat-button-send";

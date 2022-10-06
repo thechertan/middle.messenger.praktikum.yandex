@@ -1,1 +1,1 @@
-export { ChatFooterInput as default } from './chat-input';
+export { ChatFooterInput } from "./chat-input";

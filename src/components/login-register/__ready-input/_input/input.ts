@@ -14,21 +14,22 @@ interface IinputProps {
 }
 
 export class Input extends Block {
+  static componentName = "Input";
+
   constructor({ onBlur, onInput, onFocus, ...props }: IinputProps) {
     super({
       ...props,
       events: { focus: onFocus, input: onInput, blur: onBlur },
-    })
+    });
   }
 
   render(): string {
     // language=hbs
     return `
     <input
-    id="{{label}}" 
     type="{{type}}" 
     name="{{name}}"
     class="register__input" />
-    `
+    `;
   }
 }

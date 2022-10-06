@@ -57,6 +57,9 @@ export class Validator {
       case "login":
         result = validateLogin(text);
         break;
+      case "login2":
+        result = validateLogin(text);
+        break;
       case "first_name":
         result = validateNameLastName(text);
         break;
@@ -89,7 +92,7 @@ export class Validator {
   public checkInput(
     name: string,
     textPwd: string = "",
-    buttonAtribute: string,
+    buttonAtribute: string
   ): {} {
     const input = this.props.getInput(name);
     const result: string = this.props.validateInput(name, input.value, textPwd);
@@ -128,24 +131,25 @@ export class Validator {
       }
     }
   }
-
+// Необходимо передать имя инпута(e.target.name events: idInput!), и для какой кнопки инпут, тег for в кнопке как в label
   public onInput(e: Event) {
     e.preventDefault();
     let input: string;
     try {
-     input = e.target.attributes.for.value;
+      input = e.target.attributes.for.value;      
     } catch (error) {
-      input = 'button_registor'
+      input = "button_registor";
     }
     this.props.checkInput(e.target.name, false, input);
   }
+
   public onFocus(e: Event) {
     e.preventDefault();
     let input: string;
     try {
-     input = e.target.attributes.for.value;
+      input = e.target.attributes.for.value;
     } catch (error) {
-      input = 'button_registor'
+      input = "button_registor";
     }
     this.props.checkInput(e.target.name, false, input);
   }
@@ -155,9 +159,9 @@ export class Validator {
     let input: string;
     try {
       input = e.target.attributes.for.value;
-     } catch (error) {
-       input = 'button_registor'
-     }  
+    } catch (error) {
+      input = "button_registor";
+    }
     this.props.checkInput(e.target.name, false, input);
   }
 
@@ -166,45 +170,33 @@ export class Validator {
     const pwdUp = this.props.getInput("password");
     let input: string;
     try {
-     input = e.target.attributes.for.value;
+      input = e.target.attributes.for.value;
     } catch (error) {
-      input = 'button_registor'
+      input = "button_registor";
     }
-    this.props.checkInput(
-      e.target.name,
-      pwdUp.value,
-      input,
-    );
+    this.props.checkInput(e.target.name, pwdUp.value, input);
   }
   public onFocusPasswordConfirm(e: Event) {
     e.preventDefault();
     const pwdUp = this.props.getInput("password");
     let input: string;
     try {
-     input = e.target.attributes.for.value;
+      input = e.target.attributes.for.value;
     } catch (error) {
-      input = 'button_registor'
+      input = "button_registor";
     }
 
-    this.props.checkInput(
-      e.target.name,
-      pwdUp.value,
-      input,
-    );
+    this.props.checkInput(e.target.name, pwdUp.value, input);
   }
   public onBlurPasswordConfirm(e: Event) {
     e.preventDefault();
     const pwdUp = this.props.getInput("password");
     let input: string;
     try {
-     input = e.target.attributes.for.value;
+      input = e.target.attributes.for.value;
     } catch (error) {
-      input = 'button_registor'
+      input = "button_registor";
     }
-    this.props.checkInput(
-      e.target.name,
-      pwdUp.value,
-      input,
-    );
+    this.props.checkInput(e.target.name, pwdUp.value, input);
   }
 }

@@ -1,1 +1,1 @@
-export { ChatFooterButtonPopup as default } from './chat-button-popup';
+export { ChatFooterButtonPopup } from './chat-button-popup';

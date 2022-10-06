@@ -6,13 +6,14 @@ interface IChatButtonPopup {
   onFocus?: () => void;
 }
 export class ChatFooterInput extends Block {
+  static componentName = "ChatFooterInput";
+
   constructor({ onInput, onBlur, onFocus }: IChatButtonPopup) {
     super({ events: { focus: onFocus, input: onInput, blur: onBlur } });
   }
 
   render(): string {
-
-   return `
+    return `
     <input
       for='button-send'
       placeholder="Сообщение"

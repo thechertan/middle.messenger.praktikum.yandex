@@ -1,1 +1,1 @@
-export { PopupClose as default } from './popup-close';
+export { PopupClose } from "./popup-close";

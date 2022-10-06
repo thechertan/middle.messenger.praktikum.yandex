@@ -1,1 +1,1 @@
-export { ProfileError as default } from './profile-error';
+export { ProfileError } from './profile-error';

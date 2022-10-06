@@ -1,13 +1,9 @@
 import { Block } from "../../../core";
-import { Validator } from "../../../helpers/validateInput/Validator";
-const validator = new Validator();
 
 import "./not-found-сhat.css";
 
 class NotFoundChat extends Block {
-  constructor() {
-    super();
-  }
+  static componentName = "NotFoundChat";
 
   render(): string {
     return `

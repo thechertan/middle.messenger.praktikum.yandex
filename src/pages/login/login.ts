@@ -1,8 +1,20 @@
-import { Block } from "core";
+import { Block, registerComponent } from "core";
 import { Validator } from "helpers/validateInput/Validator";
-const validator = new Validator();
+import { Input } from "../../components/login-register/__ready-input/_input";
+import { InputError } from "../../components/login-register/__input-error/index";
+import { Button } from "../../components/login-register/__button";
+import { Link } from "../../components/login-register/__link";
+import { ReadyInput } from "../../components/login-register/__ready-input";
 
-class LoginPage extends Block {
+registerComponent(Input);
+registerComponent(ReadyInput);
+registerComponent(InputError);
+registerComponent(Button);
+registerComponent(Link);
+
+const validator = new Validator();
+export class LoginPage extends Block {
+  static componentName = 'LoginPage'
   constructor() {
     super();
     this.setProps({
@@ -14,14 +26,14 @@ class LoginPage extends Block {
       isActiveButton: validator.isActiveButton.bind(this),
       checkInput: validator.checkInput.bind(this),
       onSubmit: this.onSubmit.bind(this),
-    }), 
+    });
     this.setState({
       count: 2,
       oneChange: false,
-    })
+    });
   }
 
-public onSubmit(e: Event): void {
+  public onSubmit(e: Event): void {
     e.preventDefault();
     const inputLogin = this.element?.querySelector(
       "input[name=login]"
@@ -29,13 +41,14 @@ public onSubmit(e: Event): void {
     const inputPassword = this.element?.querySelector(
       "input[name=password]"
     ) as HTMLInputElement;
+
     console.log({
       login: inputLogin.value,
       password: inputPassword.value,
     });
   }
 
-public render(): string {
+  render(): string {
     return `
   <main class="main">
   <section class="register">
@@ -61,6 +74,7 @@ public render(): string {
         onBlur=onBlur
         onFocus=onFocus 
         text='Пароль' 
+        type='password'
         label='password' 
         name='password'
       }}}
@@ -89,5 +103,3 @@ public render(): string {
 `;
   }
 }
-
-export { LoginPage };

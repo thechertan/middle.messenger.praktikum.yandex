@@ -1,15 +1,17 @@
 import { Block, registerComponent } from "../../../core";
-import { PopupClose } from "./popup-close/popup-close";
+import { PopupClose } from "./_close/popup-close";
+
+import "./chat-popup.css";
 
 registerComponent(PopupClose);
-
-import './chat-popup.css'
 
 interface IchatPopup {
   onClick?: () => void;
 }
 
 export class ChatPopup extends Block {
+  static componentName = "ChatPopup";
+
   constructor({ ...props }: IchatPopup) {
     super({ ...props });
   }

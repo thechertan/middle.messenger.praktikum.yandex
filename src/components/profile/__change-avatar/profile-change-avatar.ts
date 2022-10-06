@@ -6,6 +6,8 @@ interface ProfileChangeAvatarProps {
 }
 
 export class ProfileChangeAvatar extends Block {
+  static componentName = "ProfileChangeAvatar";
+
   constructor({ onClick, onChange }: ProfileChangeAvatarProps) {
     super({ events: { click: onClick,  mouseover: onChange, mouseout: onChange} });
   }

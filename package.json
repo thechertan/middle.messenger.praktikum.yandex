@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "parcel src/pages/**/*.hbs --no-cache",
-    "devexpress": "nodemon app.js",
-    "start": "npx parcel build ./src/pages/**/*.hbs --no-cache && node ./app.js",
+    "dev": "parcel src/index.html --no-cache",
+    "start": "npx parcel build ./src/index.html --no-cache && node ./app.js",
     "netlify": "parcel build src/pages/**/*.hbs --no-cache && npm i",
     "newdev": "parcel src/index.html --no-cache",
-    "lint": "npx eslint ./src --ext ts --fix"
+    "lint": "eslint ./src/**/*.ts --fix && stylelint ./src/**/*.css --fix"
   },
   "alias": {
     "core": "./src/core",
@@ -29,13 +28,22 @@
     "parcel": "2.7.0",
     "parcel-plugin-handlebars-precompile": "^1.0.2",
     "postcss-import": "^12.0.1",
-    "typescript": "^4.8.3"
+    "stylelint-config-standard": "^28.0.0",
+    "typescript": "^4.8.3",
+    "eslint": "^8.24.0",
+    "stylelint": "^14.13.0"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-standard-with-typescript": "^23.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-n": "^15.3.0",
+    "eslint-plugin-promise": "^6.0.1",
     "express": "4.18.1",
-    "helmet": "^6.0.0",
-    "nanoid": "^4.0.0",
-    "nodemon": "^2.0.20"
+    "handlebars": "^4.7.7",
+    "nanoid": "^4.0.0"
   }
 }

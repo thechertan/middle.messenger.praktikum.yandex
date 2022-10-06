@@ -1,1 +1,1 @@
-export { ChatPopup as default } from './chat-popup';
+export { ChatPopup } from "./chat-popup";

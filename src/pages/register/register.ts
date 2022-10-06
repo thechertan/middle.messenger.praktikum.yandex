@@ -1,6 +1,17 @@
-import input from "../../components/login-register/__ready-input/_input";
-import { Block } from "../../core";
+import { Block, registerComponent } from "../../core";
 import { Validator } from "../../helpers/validateInput/Validator";
+import { Input } from "../../components/login-register/__ready-input/_input";
+import { InputError } from "../../components/login-register/__input-error/index";
+import { Button } from "../../components/login-register/__button";
+import { Link } from "../../components/login-register/__link";
+import { ReadyInput } from "../../components/login-register/__ready-input";
+
+registerComponent(Input);
+registerComponent(ReadyInput);
+registerComponent(InputError);
+registerComponent(Button);
+registerComponent(Link);
+
 const validator = new Validator();
 
 class RegisterPage extends Block {
@@ -18,13 +29,12 @@ class RegisterPage extends Block {
       isActiveButton: validator.isActiveButton.bind(this),
       checkInput: validator.checkInput.bind(this),
       onSubmit: this.onSubmit.bind(this),
-    }),
+    });
     this.setState({
       count: 7,
       oneChange: false,
     });
   }
-
 
   onSubmit(e: Event) {
     e.preventDefault();
@@ -46,7 +56,7 @@ class RegisterPage extends Block {
     const inputPassword = this.element?.querySelector(
       "input[name=password]"
     ) as HTMLInputElement;
-    
+
     console.log({
       email: inputEmail.value,
       login: inputLogin.value,
@@ -67,7 +77,7 @@ class RegisterPage extends Block {
       <fieldset class="register__fieldset register__fieldset_register">
         {{{ReadyInput 
           onInput=onInput
-          onBlur=onBlur
+          onBlur=onBlur 
           onFocus=onFocus
           type='email'
           label='email'

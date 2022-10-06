@@ -1,58 +1,39 @@
-require("babel-core/register");
-import { Block, renderDOM, registerComponent } from "./core";
-import RegisterPage from "./pages/register";
-import ProfilePage from "./pages/profile";
-import ProfileChangeData from "./pages/profileChangeData"
-import NotFound from "./pages/notFound";
-import Login from "./pages/login";
+// require("babel-core/register");
+import { renderDOM } from "./core";
+import { RegisterPage } from "./pages/register";
+import { ProfilePage } from "./pages/profile";
+import { ProfileChangeDataPage } from "./pages/profileChangeData";
+import { NotFoundPage } from "./pages/notFound";
+import { LoginPage } from "./pages/login";
 import { ChatPage } from "./pages/chat/chat";
 import { ProfileChangePassword } from "./pages/profileChangePassword/profileChangePassword";
 
-
 import "./styles/styles.css";
 
-import Input from "./components/login-register/__ready-input/_input";
-import inputError from "./components/login-register/__input-error";
-import Button from "./components/login-register/__button";
-import Link from "./components/login-register/__link";
-import ReadyInput from "./components/login-register/__ready-input";
-
-registerComponent(Input);
-registerComponent(ReadyInput);
-registerComponent(inputError);
-registerComponent(Button);
-registerComponent(Link);
-
-
-
 function router(route: string): object {
-  if(route === '/profile-change-data'){
-    return new ProfileChangeData();
+  if (route === "/profile-change-data") {
+    return new ProfileChangeDataPage();
   }
-  if(route === '/login'){
-    return new Login();
+  if (route === "/login") {
+    return new LoginPage();
   }
-  if(route === '/profile'){
+  if (route === "/profile") {
     return new ProfilePage();
   }
-  if(route === '/profile-change-password'){
+  if (route === "/profile-change-password") {
     return new ProfileChangePassword();
   }
-  if(route === '/chat'){
+  if (route === "/chat") {
     return new ChatPage();
   }
-  if(route === '/register'){
+  if (route === "/register") {
     return new RegisterPage();
-  }else {
-    return new NotFound();
+  } else {
+    return new NotFoundPage();
   }
- 
 }
-const routers = router(window.location.pathname.replace(/.hbs/i, ''))
-
-
-
+const routers: any = router(window.location.pathname.replace(/.hbs/i, ""));
 
 document.addEventListener("DOMContentLoaded", () => {
-    renderDOM(routers);
+  renderDOM(routers);
 });

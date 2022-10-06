@@ -1,1 +1,1 @@
-export { ProfileButton as default } from './profile-button';
+export { ProfileButton } from './profile-button';

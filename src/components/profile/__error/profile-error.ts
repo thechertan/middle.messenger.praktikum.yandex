@@ -5,6 +5,8 @@ interface ProfileErrorProps {
 }
 
 export class ProfileError extends Block {
+  static componentName = "ProfileError";
+
   constructor({ ...props }: ProfileErrorProps) {
     super({ ...props });
   }

@@ -6,6 +6,8 @@ interface IChatButtonSend {
 }
 
 class ChatButtonSend extends Block {
+  static componentName = "ChatButtonSend";
+
   constructor({ onClick }: IChatButtonSend) {
     super({ events: { click: onClick } });
   }

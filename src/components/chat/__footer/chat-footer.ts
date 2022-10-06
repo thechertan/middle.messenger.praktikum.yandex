@@ -1,26 +1,27 @@
 import { Block, registerComponent } from "core";
-import ChatButtonSend from "./_button-send";
-import ChatFooterButtonPopup from "./_button-popup"
-import ChatFooterInput from "./_input"
-
-registerComponent(ChatButtonSend)
-registerComponent(ChatFooterButtonPopup)
-registerComponent(ChatFooterInput)
-
 
 import { PopupOpen } from "helpers/popupOpen/PopupOpen";
 import { Validator } from "helpers/validateInput/Validator";
-const popupOpen = new PopupOpen();
-const validator = new Validator();
 
 import photoOrVideo from "image/__photo_or_video.svg";
 import fileSend from "image/__file-send.png";
 import locationSend from "image/__location-send.svg";
+import { ChatFooterInput } from "./_input";
+import { ChatFooterButtonPopup } from "./_button-popup";
+import { ChatButtonSend } from "./_button-send";
 
 import "./chat-footer.css";
 
+registerComponent(ChatButtonSend);
+registerComponent(ChatFooterButtonPopup);
+registerComponent(ChatFooterInput);
+const popupOpen = new PopupOpen();
+const validator = new Validator();
+
 class ChatFooter extends Block {
-  constructor() { 
+  static componentName = "ChatFooter";
+
+  constructor() {
     super();
     this.setProps({
       onInput: validator.onInput.bind(this),
@@ -36,12 +37,12 @@ class ChatFooter extends Block {
     this.setState({
       count: 1,
       oneChange: false,
-    })
+    });
   }
 
-  onSubmit(e: Event){
+  onSubmit(e: Event) {
     e.preventDefault();
-    console.log('work');
+    console.log("work");
   }
 
   render(): string {

@@ -1,155 +1,153 @@
+import { PopupOpen } from "helpers/popupOpen/PopupOpen";
 import { Block, registerComponent } from "../../../core";
 import { Validator } from "../../../helpers/validateInput/Validator";
 import { ChatFooter } from "../__footer/chat-footer";
 import { ChatHeaderButtonPopup } from "./_button-popup/chat-button-popup";
+import { ChatUserButtonPopup } from "./_button-popup-user/chat-button-popup-user";
+import { PopupUser } from "./_popup-user/popup-user";
+import { HeaderProfile } from "./_header/header-profile";
+import { ProfileDateMessage } from "./_message/_date/profile-date-message";
+import { ProfileMessage } from "./_message/_message/profile-message";
 
 // image
-
-import sum from "../../../image/__sum.svg";
-import defaultMessage from "../../../image/__defaultsendmessage.png"
-import successMessage from "../../../image/__succes-message.svg"
-import image from "../../../image/1-9.jpg"
-import { PopupOpen } from "helpers/popupOpen/PopupOpen";
-const popup = new PopupOpen();
-const validator = new Validator();
-registerComponent(ChatFooter)
-registerComponent(ChatHeaderButtonPopup)
+import defaultMessage from "../../../image/__defaultsendmessage.png";
+import image from "../../../image/1-9.jpg";
 
 import "./chat-profile.css";
 
+const popup = new PopupOpen();
+const validator = new Validator();
+
+registerComponent(ChatFooter);
+registerComponent(ChatHeaderButtonPopup);
+registerComponent(ChatUserButtonPopup);
+registerComponent(PopupUser);
+registerComponent(HeaderProfile);
+registerComponent(ProfileMessage);
+registerComponent(ProfileDateMessage);
+
 class ChatProfile extends Block {
+  static componentName = "ChatProfile";
+
   constructor() {
-    super(),
+    super();
     this.setProps({
       onPopup: popup.openPopup.bind(this),
-    })
+      onInput: validator.onInput.bind(this),
+      onFocus: validator.onFocus.bind(this),
+      onBlur: validator.onBlur.bind(this),
+      getInput: validator.getInput.bind(this),
+      validateInput: validator.validateInput.bind(this),
+      isActiveButton: validator.isActiveButton.bind(this),
+      checkInput: validator.checkInput.bind(this),
+      onSubmit: this.onSubmit.bind(this),
+    });
+    this.setState({
+      count: 1,
+    });
+  }
+
+  onSubmit(e: SubmitEvent) {
+    e.preventDefault();
+    console.log("work");
   }
 
   render(): string {
     return `
-    <div class="chat__profile">
+  <div class="chat__profile">
   <div class="chat__container-profile">
-    <div class="chat__header">
-      <div class="chat__user-container">
-        <div class="chat__user-avatar"></div>
-        <h1 class="chat__name">Сергей Иванов</h1>
-      </div>
-    </div>
+      {{{HeaderProfile
+        img=false
+        name='Сергей Иванов'
+      }}}
     <div class="chat__options">
       {{{ChatHeaderButtonPopup
         onPopup=onPopup
       }}}
       <div class="chat__container-options">
         <!-- чтобы открыть попап нужно добавить класс боксу chat__box-options_opened -->
-        <div id='header__popup' class="chat__box-options chat__box-options_opened">
+        <div id='header__popup' class="chat__box-options">
           <ul class="chat__options-choice">
-            <li class="chat__options-item">
-              <img
-                src="${sum}"
-                alt="Плюс"
-                class="chat__button-icon"
-              />
-              <p class="chat__options-text">Добавить пользователя</p>
-            </li>
-            <li class="chat__options-item">
-              <img
-                src="${sum}"
-                alt="Плюс"
-                class="chat__button-icon chat__button-icon_rotate45"
-              />
-              <p class="chat__options-text">Удалить пользователя</p>
-            </li>
+              {{{ChatUserButtonPopup
+                for='add__user'
+                onPopup=onPopup
+                class='chat__button-icon'
+                text='Добавить пользователя'
+              }}}
+                {{{ChatUserButtonPopup
+                for='delete__user'
+                onPopup=onPopup
+                class='chat__button-icon chat__button-icon_rotate45'
+                text='Удалить пользователя'
+              }}}
           </ul>
         </div>
       </div>
     </div>
   </div>
   <div class="chat__content-mesage">
-    <h2 class="chat__content-date">19 июня</h2>
-    <div class="chat__content-message-sender">
-      <p class="chat__content-message-sender-text">a
-      </p>
-      <div class="chat__content-message-position">
-        <span class="chat__content-message-time">11:56</span>
-      </div>
-    </div>
-    <div class="chat__content-message-sender">
-      <p class="chat__content-message-sender-text">Привет! Смотри, тут всплыл
-        интересный кусок лунной космической истории — НАСА в какой-то момент
-        попросила Хассельблад адаптировать модель SWC для полетов на Луну.
-        Сейчас мы все знаем что астронавты летали с моделью 500 EL — и к слову
-        говоря, все тушки этих камер все еще находятся на поверхности Луны, так
-        как астронавты с собой забрали только кассеты с пленкой. Хассельблад в
-        итоге адаптировал SWC для космоса, но что-то пошло не так и на ракету
-        они так никогда и не попали. Всего их было произведено 25 штук, одну из
-        них недавно продали на аукционе за 45000 евро.
-      </p>
-      <div class="chat__content-message-position">
-        <span class="chat__content-message-time">11:56</span>
-      </div>
-    </div>
+    {{{ProfileDateMessage
+      date='19 июня'
+    }}}
 
-    <div class="chat__content-message-sender chat__content-message-sender_img">
-      <img
-        src="${defaultMessage}"
-        alt="Картинка"
-        class="chat__content-message-sender-image"
-      />
-      <div class="chat__content-message-position">
-        <span
-          class="chat__content-message-time chat__content-message-time_img"
-        >11:56</span>
-      </div>
-    </div>
-    <div
-      class="chat__content-message-sender chat__content-message-sender_admin"
-    >
-      <p class="chat__content-message-sender-text">Привет!
-      </p>
-      <div class="chat__content-message-position">
+    {{{ProfileMessage
+      isMyMessage=true
+      text='Привет'
+      time='12:45'
+      isText=true
+    }}}
+    {{{ProfileMessage
+      isMyMessage=false
+      text='Привет'
+      time='12:46'
+      isText=true
+    }}}
 
-        <span class="chat__content-message-time">
-          <img src="${successMessage}" alt="Отправлено" />
-          11:56
-        </span>
-      </div>
-    </div>
+    {{{ProfileMessage
+      isMyMessage=false
+      src='${defaultMessage}'
+      time='12:45'
+      isImage=true
+    }}}
 
-    <div
-      class="chat__content-message-sender chat__content-message-sender_img chat__content-message-sender_admin"
-    >
-      <img
-        src="${image}"
-        alt="Картинка"
-        class="chat__content-message-sender-image"
-      />
-      <div class="chat__content-message-position">
-        <span
-          class="chat__content-message-time chat__content-message-time_img chat__content-message-time_admin"
-        >
-          <img src="${successMessage}" alt="Отправлено" />
-          11:56</span>
-      </div>
-    </div>
-    <div
-      class="chat__content-message-sender chat__content-message-sender_img chat__content-message-sender_admin"
-    >
-      <img
-        src="${image}"
-        alt="Картинка"
-        class="chat__content-message-sender-image"
-      />
-      <div class="chat__content-message-position">
-        <span
-          class="chat__content-message-time chat__content-message-time_img chat__content-message-time_admin"
-        >
-          <img src="${successMessage}" alt="Отправлено" />
-          11:56</span>
-      </div>
-    </div>
+    {{{ProfileMessage
+      isMyMessage=true
+      src='${image}'
+      time='12:45'
+      isImage=true
+    }}}
+
   </div>
+
   {{{ChatFooter}}}
-    `;
+  {{{PopupUser
+    onSubmit=onSubmit
+    onPopup=onPopup
+    idName='add__user'
+    text='Добавить пользователя'
+    textButton='Добавить'
+    idInput='login'
+    idButton='button__login'
+    onPopup=onPopup
+    onBlur=onBlur
+    onFocus=onFocus
+    onInput=onInput
+  }}}
+
+  {{{PopupUser
+    onSubmit=onSubmit
+    onPopup=onPopup
+    idName='delete__user'
+    text='Удалить пользователя'
+    textButton='Удалить'
+    idInput='login2'
+    idButton='button__login2'
+    onPopup=onPopup
+    onBlur=onBlur
+    onFocus=onFocus
+    onInput=onInput
+  }}}
+  `;
   }
 }
 

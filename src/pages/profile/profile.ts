@@ -1,12 +1,6 @@
 import { Block } from "../../core";
-import { Validator } from "../../helpers/validateInput/Validator";
-const validator = new Validator();
 
 class ProfilePage extends Block {
-  constructor() {
-    super();
-  }
-
   render(): string {
     return `
   <main>

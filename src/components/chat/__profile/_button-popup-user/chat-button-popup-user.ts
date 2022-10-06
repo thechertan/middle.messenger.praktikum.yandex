@@ -1,13 +1,16 @@
-import { Block } from "../../../../core";
-import threeDot from "../../../../image/__three_dot.svg";
-
+import { Block } from "core";
+import sum from "image/__sum.svg";
 
 interface IChatUserButtonPopup {
   onPopup?: () => void;
   for?: string;
+  class?: string;
+  text?: string;
 }
 
 export class ChatUserButtonPopup extends Block {
+  static componentName = "ChatUserButtonPopup";
+
   constructor({ onPopup, ...props }: IChatUserButtonPopup) {
     super({
       ...props,
@@ -17,13 +20,15 @@ export class ChatUserButtonPopup extends Block {
 
   render(): string {
     return `
-    <img
-    for='header__popup'
-    src="${threeDot}"
-    alt="Настройки чата"
-    class="chat__options-button"
-    />
-  
+    <li for='{{for}}' class="chat__options-item">
+        <img
+          for='{{for}}'
+          src="${sum}"
+          alt="Плюс"
+          class="{{class}}"
+        />
+        <p for='{{for}}' class="chat__options-text">{{text}}</p>
+    </li>
   `;
   }
 }

@@ -1,1 +1,1 @@
-export { NotFoundChat as default } from './not-found-сhat';
+export { NotFoundChat } from "./not-found-сhat";

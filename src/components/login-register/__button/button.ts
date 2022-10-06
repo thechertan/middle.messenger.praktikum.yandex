@@ -10,13 +10,13 @@ interface ButtonProps {
 }
 
 export class Button extends Block {
+  static componentName = 'Button'
+
   constructor({ className, text, id, onClick }: ButtonProps) {
     super({ className, text, id, events: { click: onClick } });
   }
 
   render() {
- 
-    
     return `
   <button
     type="submit"

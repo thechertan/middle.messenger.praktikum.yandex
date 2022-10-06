@@ -6,6 +6,8 @@ interface ProfileLebelProps {
 }
 
 export class ProfileLable extends Block {
+  static componentName = "ProfileLable";
+
   constructor({ ...props }: ProfileLebelProps) {
     super({ ...props });
   }

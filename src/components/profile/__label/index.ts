@@ -1,1 +1,1 @@
-export { ProfileLable as default } from './profile-label';
+export { ProfileLable } from "./profile-label";

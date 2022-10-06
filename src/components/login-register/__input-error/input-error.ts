@@ -1,6 +1,3 @@
-
-
-
 import Block from "../../../core/Block";
 
 interface InputErrorProps {
@@ -10,15 +7,13 @@ interface InputErrorProps {
 }
 
 export class InputError extends Block {
-  constructor({
-    text,
-    className,
-    id
-  }: InputErrorProps) {
+  static componentName = 'InputError'
+
+  constructor({ text, className, id }: InputErrorProps) {
     super({
       text,
       className,
-      id
+      id,
     });
   }
 

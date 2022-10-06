@@ -8,6 +8,8 @@ interface IChatHeaderButtonPopup {
 }
 
 export class ChatHeaderButtonPopup extends Block {
+  static componentName = "ChatHeaderButtonPopup";
+
   constructor({ onPopup, ...props }: IChatHeaderButtonPopup) {
     super({
       ...props,

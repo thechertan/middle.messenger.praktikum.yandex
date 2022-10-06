@@ -5,6 +5,8 @@ interface IPopupClose {
 }
 
 export class PopupClose extends Block {
+  static componentName = "PopupClose";
+
   constructor({ onClick }: IPopupClose) {
     super({ events: { click: onClick } });
   }

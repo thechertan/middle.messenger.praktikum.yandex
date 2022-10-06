@@ -14,6 +14,8 @@ interface IreadyInput {
 }
 
 export class ReadyInput extends Block {
+  static componentName = "ReadyInput";
+
   constructor({ onBlur, onInput, onFocus, ...props }: IreadyInput) {
     super({
       onBlur,

@@ -1,1 +1,1 @@
-export { ProfileChangeAvatar as default } from './profile-change-avatar';
+export { ProfileChangeAvatar } from './profile-change-avatar';

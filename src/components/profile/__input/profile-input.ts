@@ -11,6 +11,8 @@ interface ProfileIinputProps {
 }
 
 export class ProfileInput extends Block {
+  static componentName = "ProfileInput";
+
   constructor({ onBlur, onInput, onFocus, ...props }: ProfileIinputProps) {
     super({
       ...props,

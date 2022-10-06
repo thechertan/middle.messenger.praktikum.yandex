@@ -8,6 +8,8 @@ interface IprofilePopup {
 }
 
 export class ProfilePopup extends Block {
+  static componentName = "ProfilePopup";
+
   constructor({ ...props }: IprofilePopup) {
     super({ ...props });
   }
@@ -22,14 +24,14 @@ export class ProfilePopup extends Block {
           onClick=onClick
         }}}  
         <div class="popup__content">
-          <h2 class="popup__title">Загрузите файл</h2>
+              <h2 class="popup__title">Загрузите файл</h2>
           <form class="popup__form popup_type-edit-avatar" name="popupForm-edit">
             <fieldset class="popup__fieldset">
               <input
-                class="popup__input-profile"
-                type="file"
-                name="avatar"
-                id="file"
+              class="popup__input-profile"
+              type="file"
+              name="avatar"
+              id="file"
               />
               <label class="popup__input-profile_label" for="file"></label>
               <button type="submit" name="save" class="popup__form-submit">

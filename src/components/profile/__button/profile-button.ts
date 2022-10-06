@@ -1,9 +1,12 @@
 import Block from "../../../core/Block";
+
 interface ButtonProps {
   onClick: () => void;
 }
 
 export class ProfileButton extends Block {
+  static componentName = "ProfileButton";
+
   constructor({ onClick }: ButtonProps) {
     super({ events: { click: onClick } });
   }

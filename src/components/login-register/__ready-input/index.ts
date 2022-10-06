@@ -1,1 +1,1 @@
-export { ReadyInput as default } from './readyInput';
+export { ReadyInput } from './readyInput';
