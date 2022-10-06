@@ -20,7 +20,7 @@ import locationSend from "image/__location-send.svg";
 import "./chat-footer.css";
 
 class ChatFooter extends Block {
-  constructor() {
+  constructor() { 
     super();
     this.setProps({
       onInput: validator.onInput.bind(this),
