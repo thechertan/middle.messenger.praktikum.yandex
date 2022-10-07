@@ -1,11 +1,5 @@
-import { validateLogin } from "./validate.login";
-import { validatePassword } from "./validate.password";
-import { validateEmail } from "./validate.email";
-import { validateNameLastName } from "./validate.name";
-import { validatePhone } from "./validate.phone";
 import { validatePasswordConfirm } from "./validate.password-confirm";
 import { validateMessage } from "./validator.message";
-import { stringify } from "querystring";
 
 interface IisActivButton {
   email?: boolean;
@@ -49,43 +43,66 @@ export class Validator {
   }
 
   public validateInput(name: string, text: string, text2?: string): string {
+    let regexp: any;
     let result: string = "";
     switch (name) {
       case "email":
-        result = validateEmail(text);
+        regexp =
+          /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        if (!text.match(regexp)) {
+          result = "Это не E-mail";
+        }
         break;
       case "login":
-        result = validateLogin(text);
-        break;
       case "login2":
-        result = validateLogin(text);
-        break;
-      case "first_name":
-        result = validateNameLastName(text);
+        regexp = /^[a-zA-Z](.[a-zA-Z0-9_-]*)$/;
+        if (!text.match(regexp)) {
+          result = "Не логин!";
+        }
         break;
       case "display_name":
-        result = validateNameLastName(text);
-        break;
+      case "first_name":
       case "second_name":
-        result = validateNameLastName(text);
+        regexp = /^[А-Я]{1}[а-я]+$/g;
+        if (!text.match(regexp)) {
+          result = "Поле заполнено не верно";
+        }
         break;
       case "phone":
-        result = validatePhone(text);
-        break;
-      case "password":
-        result = validatePassword(text);
-        break;
+        regexp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,15}(\s*)?$/;
+        if (!text.match(regexp)) {
+          result = "Это не номер телефона";
+        }
+        return result;
       case "oldPassword":
-        result = validatePassword(text);
-        break;
+      case "password":
+        regexp = /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[0-9a-zA-Z!@#$%^&*]{8,40}/g;
+        if (text.length === 0) {
+          result = "Пароль не может быть пустым";
+        } else if (text.length < 8) {
+          result = "Пароль не может быть меньше 8 символов";
+        } else if (!text.match(regexp)) {
+          result = "Должна быть хотябы 1 заглавная и 1 цифра";
+        }
+        return result;
       case "password_confirm":
-        result = validatePasswordConfirm(text, text2);
-        break;
+        regexp = /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[0-9a-zA-Z!@#$%^&*]{8,40}/g;
+        if (text.length === 0) {
+          result = "Пароль не может быть пустым";
+        } else if (text != text2) {
+          result = "Пароли не совпадают";
+        } else result = "";
+        return result;
       case "message":
-        result = validateMessage(text);
-        break;
-      default:
-        break;
+        if (text.length === 0) {
+          result = "Поле не может быть пустым";
+        }
+        return result;
+    }
+    if (text.length === 0) {
+      result = "Поле не может быть пустым";
+    } else if (text.length < 3) {
+      result = "Поле должно быть меньше 3 символов";
     }
     return result;
   }
@@ -96,6 +113,8 @@ export class Validator {
   ): {} {
     const input = this.props.getInput(name);
     const result: string = this.props.validateInput(name, input.value, textPwd);
+    console.log(result);
+
     const spanError = this.element?.querySelector(
       `#error__${name}`
     ) as HTMLSpanElement;
@@ -131,12 +150,12 @@ export class Validator {
       }
     }
   }
-// Необходимо передать имя инпута(e.target.name events: idInput!), и для какой кнопки инпут, тег for в кнопке как в label
-  public onInput(e: Event) {
+  // Необходимо передать имя инпута(e.target.name events: idInput!), и для какой кнопки инпут, тег for в кнопке как в label
+  public onInput(e: Event, ) {
     e.preventDefault();
     let input: string;
     try {
-      input = e.target.attributes.for.value;      
+      input = e.target.attributes.for.value;
     } catch (error) {
       input = "button_registor";
     }

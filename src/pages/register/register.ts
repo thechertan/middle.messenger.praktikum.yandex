@@ -20,7 +20,7 @@ class RegisterPage extends Block {
     this.setProps({
       onInput: validator.onInput.bind(this),
       onFocus: validator.onFocus.bind(this),
-      onBlurEmail: validator.onBlur.bind(this),
+      onBlur: validator.onBlur.bind(this),
       onInputPasswordConfirm: validator.onInputPasswordConfirm.bind(this),
       onFocusPasswordConfirm: validator.onFocusPasswordConfirm.bind(this),
       onBlurPasswordConfirm: validator.onBlurPasswordConfirm.bind(this),
@@ -35,6 +35,9 @@ class RegisterPage extends Block {
       oneChange: false,
     });
   }
+
+
+  
 
   onSubmit(e: Event) {
     e.preventDefault();
