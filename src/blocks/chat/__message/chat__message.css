@@ -7,10 +7,10 @@
   font-size: 12px;
   line-height: 15px;
   color: #1e1e1e;
-  margin-top: 4px;
+  margin-top: 10px;
   text-align: justify;
-  height: 30px;
+  height: 15px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: wrap;
+  white-space: nowrap;
 }

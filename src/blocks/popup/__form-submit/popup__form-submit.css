@@ -17,6 +17,17 @@
   padding: 12px 0;
 }
 
+.popup__form-submit:disabled {
+    color: #c4c4c4;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #c4c4c4;
+    box-sizing: border-box;
+    border-radius: 8px;
+    cursor: default;
+}
+
+
 .popup__form-submit:hover {
   transition-timing-function: ease-in-out;
   opacity: 0.8;

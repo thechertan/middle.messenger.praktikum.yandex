@@ -1,27 +1,19 @@
+
+
 /* libraries */
-@import url(./vendor/normalize.css);
-@import url(./vendor/fonts.css);
-
-/* Body Page */
-@import url(../blocks/main/main.css);
-
+@import "./vendor/normalize.css";
+@import "./vendor/fonts.css";
 /* Main Page */
-@import url(../blocks/main/main.css);
-
+@import "../blocks/main/main.css";
 /* Login Page */
-@import url(../partials/login/login.css);
-
+@import "../pages/login/login.css";
 /* Register Page */
-@import url(../partials/register/register.css);
-
+@import "../pages/register/register.css";
 /* Profile Page */
-@import url(../partials/profile/profile.css);
-
+@import "../pages/profile/profile.css";
 /* ProfieChangeSettings Page  */
-@import url(../partials/profile__change-data/profile__change-data.css);
-
+@import "../pages/profileChangeData/profileChangeData.css";
 /* NotFound Page */
-@import url(../partials/notfound/notfound.css);
-
+@import "../pages/notFound/notfound.css";
 /* Chat Page */
-@import url(../partials/chat/chat.css);
+@import "../pages/chat/chat.css";

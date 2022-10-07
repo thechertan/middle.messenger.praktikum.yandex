@@ -1,0 +1,14 @@
+@import "../../blocks/register/register.css";
+@import "../../blocks/register/__container/register__container.css";
+@import "../../blocks/register/__welcome/register__welcome.css";
+@import "../../blocks/register/__form/register__form.css";
+@import "../../blocks/register/__fieldset/register__fieldset.css";
+@import "../../blocks/register/__box/register__box.css";
+@import "../../blocks/register/__label/register__label.css";
+@import "../../blocks/register/__input/register__input.css";
+@import "../../blocks/register/__form-submit/register__form-submit.css";
+@import "../../blocks/register/__link/register__link.css";
+@import "../../blocks/register/__span-error/register__span-error.css";
+@import "../../blocks/register/__error/register__error.css";
+@import "../../blocks/register/__error/_center/register__error_center.css";
+@import "../../blocks/register/__fieldset/_register/register__fieldset_register.css";
