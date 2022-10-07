@@ -1,5 +1,5 @@
 import { Block, registerComponent } from "core";
-import { Validator } from "helpers/validateInput/Validator";
+import { Validator } from "helpers/Validator/Validator";
 import { Input } from "../../components/login-register/__ready-input/_input";
 import { InputError } from "../../components/login-register/__input-error/index";
 import { Button } from "../../components/login-register/__button";
@@ -12,25 +12,37 @@ registerComponent(InputError);
 registerComponent(Button);
 registerComponent(Link);
 
-const validator = new Validator();
+const objectInputs = {
+  login: false,
+  password: false,
+  count: 2,
+  modeOneChange: false,
+  isButton: true,
+};
+
+const validator = new Validator(objectInputs);
 export class LoginPage extends Block {
-  static componentName = 'LoginPage'
+  static componentName = "LoginPage";
   constructor() {
     super();
     this.setProps({
-      onInput: validator.onInput.bind(this),
-      onFocus: validator.onFocus.bind(this),
-      onBlur: validator.onBlur.bind(this),
-      getInput: validator.getInput.bind(this),
-      validateInput: validator.validateInput.bind(this),
-      isActiveButton: validator.isActiveButton.bind(this),
-      checkInput: validator.checkInput.bind(this),
+      onInput: this.onInput.bind(this),
+      onFocus: this.onFocus.bind(this),
+      onBlur: this.onBlur.bind(this),
       onSubmit: this.onSubmit.bind(this),
     });
-    this.setState({
-      count: 2,
-      oneChange: false,
-    });
+  }
+
+
+  onInput(e: Event) {
+    validator.onInput(e, this);
+  }
+
+  onFocus(e: Event) {
+    validator.onFocus(e, this);
+  }
+  onBlur(e: Event) {
+    validator.onBlur(e, this);
   }
 
   public onSubmit(e: Event): void {

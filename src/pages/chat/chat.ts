@@ -20,8 +20,6 @@ class ChatPage extends Block {
         {{{ChatListUsers}}}
         {{{ChatProfile}}}
       </section>
-
-
     </main>
     `;
   }

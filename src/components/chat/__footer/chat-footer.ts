@@ -1,7 +1,7 @@
 import { Block, registerComponent } from "core";
 
-import { PopupOpen } from "helpers/popupOpen/PopupOpen";
-import { Validator } from "helpers/validateInput/Validator";
+import { PopupOpen } from "helpers/PopupOpen/PopupOpen";
+import { Validator } from "helpers/Validator/Validator";
 
 import photoOrVideo from "image/__photo_or_video.svg";
 import fileSend from "image/__file-send.png";
@@ -16,7 +16,15 @@ registerComponent(ChatButtonSend);
 registerComponent(ChatFooterButtonPopup);
 registerComponent(ChatFooterInput);
 const popupOpen = new PopupOpen();
-const validator = new Validator();
+
+const objectInputs = {
+  message: false,
+  count: 1,
+  modeOneChange: false,
+  isButton: true,
+};
+
+const validator = new Validator(objectInputs);
 
 class ChatFooter extends Block {
   static componentName = "ChatFooter";
@@ -24,20 +32,24 @@ class ChatFooter extends Block {
   constructor() {
     super();
     this.setProps({
-      onInput: validator.onInput.bind(this),
-      onFocus: validator.onFocus.bind(this),
-      onBlur: validator.onBlur.bind(this),
-      getInput: validator.getInput.bind(this),
-      validateInput: validator.validateInput.bind(this),
-      isActiveButton: validator.isActiveButton.bind(this),
-      checkInput: validator.checkInput.bind(this),
+      onInput: this.onInput.bind(this),
+      onFocus: this.onFocus.bind(this),
+      onBlur: this.onBlur.bind(this),
       popupOpen: popupOpen.openPopup.bind(this),
       onSubmit: this.onSubmit.bind(this),
     });
-    this.setState({
-      count: 1,
-      oneChange: false,
-    });
+  }
+
+
+  onInput(e: Event) {
+    validator.onInput(e, this);
+  }
+
+  onFocus(e: Event) {
+    validator.onFocus(e, this);
+  }
+  onBlur(e: Event) {
+    validator.onBlur(e, this);
   }
 
   onSubmit(e: Event) {

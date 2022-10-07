@@ -1,12 +1,25 @@
 import { Block, registerComponent } from "../../core";
-import { Validator } from "../../helpers/validateInput/Validator";
+import { Validator } from "../../helpers/Validator/Validator";
 import { ProfileInput } from "../../components/profile/__input/profile-input";
 import { ProfileError } from "../../components/profile/__error/profile-error";
 import { ProfileLable } from "../../components/profile/__label/profile-label";
 import { ProfileButton } from "../../components/profile/__button/profile-button";
 import { ProfileChangeAvatar } from "../../components/profile/__change-avatar/profile-change-avatar";
 import { ProfilePopup } from "../../components/profile/__popup/profile-popup";
-const validator = new Validator();
+
+const objectInputs = {
+  email: true,
+  login: true,
+  first_name: true,
+  second_name: true,
+  display_name: true,
+  phone: true,
+  count: 6,
+  modeOneChange: false,
+  isButton: true,
+};
+
+const validator = new Validator(objectInputs);
 
 registerComponent(ProfileInput);
 registerComponent(ProfileError);
@@ -21,21 +34,24 @@ class ProfileChangeDataPage extends Block {
   constructor() {
     super();
     this.setProps({
-      onInput: validator.onInput.bind(this),
-      onFocus: validator.onFocus.bind(this),
-      onBlur: validator.onBlur.bind(this),
-      getInput: validator.getInput.bind(this),
-      validateInput: validator.validateInput.bind(this),
-      isActiveButton: validator.isActiveButton.bind(this),
-      checkInput: validator.checkInput.bind(this),
+      onInput: this.onInput.bind(this),
+      onFocus: this.onFocus.bind(this),
+      onBlur: this.onBlur.bind(this),
       onPopup: this.onPopup.bind(this),
       handlerAvatar: this.handlerAvatar.bind(this),
       onSubmit: this.onSubmit.bind(this),
-    }),
-      this.setState({
-        count: 6,
-        oneChange: true,
-      });
+    });
+  }
+
+  onInput(e: Event) {
+    validator.onInput(e, this);
+  }
+
+  onFocus(e: Event) {
+    validator.onFocus(e, this);
+  }
+  onBlur(e: Event) {
+    validator.onBlur(e, this);
   }
 
   handlerAvatar(e: Event) {

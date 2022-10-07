@@ -1,6 +1,6 @@
-import { PopupOpen } from "helpers/popupOpen/PopupOpen";
+import { PopupOpen } from "helpers/PopupOpen/PopupOpen";
 import { Block, registerComponent } from "../../../core";
-import { Validator } from "../../../helpers/validateInput/Validator";
+import { Validator } from "../../../helpers/Validator/Validator";
 import { ChatFooter } from "../__footer/chat-footer";
 import { ChatHeaderButtonPopup } from "./_button-popup/chat-button-popup";
 import { ChatUserButtonPopup } from "./_button-popup-user/chat-button-popup-user";
@@ -16,7 +16,15 @@ import image from "../../../image/1-9.jpg";
 import "./chat-profile.css";
 
 const popup = new PopupOpen();
-const validator = new Validator();
+
+const objectInputs = {
+  login: false,
+  count: 1,
+  modeOneChange: false,
+  isButton: true,
+};
+
+const validator = new Validator(objectInputs);
 
 registerComponent(ChatFooter);
 registerComponent(ChatHeaderButtonPopup);
@@ -33,18 +41,22 @@ class ChatProfile extends Block {
     super();
     this.setProps({
       onPopup: popup.openPopup.bind(this),
-      onInput: validator.onInput.bind(this),
-      onFocus: validator.onFocus.bind(this),
-      onBlur: validator.onBlur.bind(this),
-      getInput: validator.getInput.bind(this),
-      validateInput: validator.validateInput.bind(this),
-      isActiveButton: validator.isActiveButton.bind(this),
-      checkInput: validator.checkInput.bind(this),
+      onInput: this.onInput.bind(this),
+      onFocus: this.onFocus.bind(this),
+      onBlur: this.onBlur.bind(this),
       onSubmit: this.onSubmit.bind(this),
     });
-    this.setState({
-      count: 1,
-    });
+  }
+
+  onInput(e: Event) {
+    validator.onInput(e, this);
+  }
+
+  onFocus(e: Event) {
+    validator.onFocus(e, this);
+  }
+  onBlur(e: Event) {
+    validator.onBlur(e, this);
   }
 
   onSubmit(e: SubmitEvent) {

@@ -1,5 +1,5 @@
 import { Block, registerComponent } from "core";
-import { Validator } from "../../helpers/validateInput/Validator";
+import { Validator } from "../../helpers/Validator/Validator";
 import { ProfileInput } from "../../components/profile/__input/profile-input";
 import { ProfileError } from "../../components/profile/__error/profile-error";
 import { ProfileLable } from "../../components/profile/__label/profile-label";
@@ -9,7 +9,16 @@ import { ProfilePopup } from "../../components/profile/__popup/profile-popup";
 
 import "./profileChangePassword.css";
 
-const validator = new Validator();
+const objectInputs = {
+  oldPassword: false,
+  password: false,
+  password_confirm: false,
+  count: 3,
+  modeOneChange: false,
+  isButton: true,
+};
+
+const validator = new Validator(objectInputs);
 
 registerComponent(ProfileInput);
 registerComponent(ProfileError);
@@ -22,22 +31,36 @@ export class ProfileChangePassword extends Block {
   constructor() {
     super();
     this.setProps({
-      onInput: validator.onInput.bind(this),
-      onFocus: validator.onFocus.bind(this),
-      onBlur: validator.onBlur.bind(this),
-      onInputConfirmPassword: validator.onInputPasswordConfirm.bind(this),
-      onFocusConfirmPassword: validator.onFocusPasswordConfirm.bind(this),
-      onBlurConfirmPassword: validator.onBlurPasswordConfirm.bind(this),
-      getInput: validator.getInput.bind(this),
-      validateInput: validator.validateInput.bind(this),
-      isActiveButton: validator.isActiveButton.bind(this),
-      checkInput: validator.checkInput.bind(this),
+      onInput: this.onInput.bind(this),
+      onFocus: this.onFocus.bind(this),
+      onBlur: this.onBlur.bind(this),
+      onInputPasswordConfirm: this.onInputPasswordConfirm.bind(this),
+      onFocusPasswordConfirm: this.onFocusPasswordConfirm.bind(this),
+      onBlurPasswordConfirm: this.onBlurPasswordConfirm.bind(this),
       onSubmit: this.onSubmit.bind(this),
     });
-    this.setState({
-      count: 3,
-      oneChange: false,
-    });
+  }
+
+  onInput(e: Event) {
+    validator.onInput(e, this);
+  }
+
+  onFocus(e: Event) {
+    validator.onFocus(e, this);
+  }
+  onBlur(e: Event) {
+    validator.onBlur(e, this);
+  }
+
+  onInputPasswordConfirm(e: Event) {
+    validator.onInputPasswordConfirm(e, this);
+  }
+  onFocusPasswordConfirm(e: Event) {
+    validator.onFocusPasswordConfirm(e, this);
+  }
+
+  onBlurPasswordConfirm(e: Event) {
+    validator.onBlurPasswordConfirm(e, this);
   }
 
   onSubmit(e: Event) {
@@ -118,9 +141,9 @@ export class ProfileChangePassword extends Block {
               id='error__password_confirm'
             }}}
             {{{ProfileInput
-              onInput=onInputConfirmPassword
-              onBlur=onBlurConfirmPassword
-              onFocus=onFocusConfirmPassword
+              onInput=onInputPasswordConfirm
+              onBlur=onBlurPasswordConfirm
+              onFocus=onFocusPasswordConfirm
               type='password'
               name='password_confirm'
               placeholder='•••••••••••'

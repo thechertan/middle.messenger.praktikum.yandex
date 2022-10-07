@@ -1,6 +1,3 @@
-import { validatePasswordConfirm } from "./validate.password-confirm";
-import { validateMessage } from "./validator.message";
-
 interface IisActivButton {
   email?: boolean;
   login?: boolean;
@@ -12,31 +9,20 @@ interface IisActivButton {
   display_name?: boolean;
   newPassword?: boolean;
   message?: boolean;
+  count: number;
+  modeOneChange: boolean;
+  isButton: boolean;
 }
-const isActivButton: IisActivButton = {
-  email: false,
-  login: false,
-  first_name: false,
-  second_name: false,
-  phone: false,
-  password: false,
-  password_confirm: false,
-  newPassword: false,
-  message: false,
-};
-
-const isActivButtonProfile: IisActivButton = {
-  email: true,
-  login: true,
-  first_name: true,
-  second_name: true,
-  display_name: true,
-  phone: true,
-};
 
 export class Validator {
-  public getInput(input: string): HTMLInputElement {
-    const inputEl = this.element?.querySelector(
+  constructor(objectInputs: IisActivButton) {
+    this.inputs = objectInputs
+      ? objectInputs
+      : { count: 1, modeOneChange: false, isButton: false };
+  }
+
+  public getInput(input: string, context: object): HTMLInputElement {
+    const inputEl = context.element?.querySelector(
       `input[name=${input}]`
     ) as HTMLInputElement;
     return inputEl;
@@ -89,7 +75,7 @@ export class Validator {
         regexp = /(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])[0-9a-zA-Z!@#$%^&*]{8,40}/g;
         if (text.length === 0) {
           result = "Пароль не может быть пустым";
-        } else if (text != text2) {
+        } else if (text !== text2) {
           result = "Пароли не совпадают";
         } else result = "";
         return result;
@@ -106,116 +92,120 @@ export class Validator {
     }
     return result;
   }
+
   public checkInput(
     name: string,
     textPwd: string = "",
-    buttonAtribute: string
+    buttonAtribute: string | null,
+    context: object
   ): {} {
-    const input = this.props.getInput(name);
-    const result: string = this.props.validateInput(name, input.value, textPwd);
-    console.log(result);
-
-    const spanError = this.element?.querySelector(
+    const input = this.getInput(name, context);
+    const result: string = this.validateInput(name, input.value, textPwd);
+    const spanError = context.element?.querySelector(
       `#error__${name}`
     ) as HTMLSpanElement;
     if (spanError) {
       spanError.textContent = result;
     }
-    if (result.length === 0) {
-      this.props.isActiveButton(name, true, buttonAtribute);
-    } else this.props.isActiveButton(name, false, buttonAtribute);
+    if (this.inputs.isButton) {
+      if (result.length === 0) {
+        this.isActiveButton(name, true, buttonAtribute, context);
+      } else this.isActiveButton(name, false, buttonAtribute, context);
+    }
     return { input, result };
   }
 
-  public isActiveButton(name: string, status: boolean, buttonAtribute: string) {
-    let count: number = 0;
-    let isActivButtonRegistor: any;
-    const button = this.element?.querySelector(
+  public isActiveButton(
+    name: string,
+    status: boolean,
+    buttonAtribute: string | null,
+    context: object
+  ) {
+    let count: number;
+    if (this.inputs.modeOneChange) {
+      count = -3;
+    } else {
+      count = -2;
+    }
+    const button = context.element?.querySelector(
       `#${buttonAtribute}`
     ) as HTMLButtonElement;
-    if (this.state.oneChange) {
-      isActivButtonRegistor = isActivButtonProfile;
-    } else {
-      isActivButtonRegistor = isActivButton;
-    }
-    isActivButtonRegistor[name] = status;
-    for (let value in isActivButtonRegistor) {
-      if (isActivButtonRegistor[value]) {
+    this.inputs[name] = status;
+    for (let value in this.inputs) {
+      if (this.inputs[value]) {
         count++;
       }
-      if (count === this.state.count) {
-        button.disabled = false;
+      if (this.inputs.modeOneChange) {
+        if (count > 0) {
+          button.disabled = false;
+        } else {
+          button.disabled = true;
+        }
       } else {
-        button.disabled = true;
+        if (count === this.inputs.count) {
+          button.disabled = false;
+        } else {
+          button.disabled = true;
+        }
       }
     }
   }
+
   // Необходимо передать имя инпута(e.target.name events: idInput!), и для какой кнопки инпут, тег for в кнопке как в label
-  public onInput(e: Event, ) {
-    e.preventDefault();
+  public onEvents(e: Event, inputPwdUp: string | null, context: object) {
     let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
+    let name: string;
+    let target: EventTarget | null = e.target;
+    if (context) {
+      if (target) {
+        name = target.name;
+        if (name) {
+          if (target.attributes.for) {
+            input = target.attributes.for.value;
+          } else {
+            input = "button_registor";
+          }
+          this.checkInput(name, inputPwdUp, input, context);
+        } else {
+          console.log("У инпута нет id");
+        }
+      } else {
+        console.log("Передайте events");
+      }
+    } else {
+      console.log("Передайте контекст");
     }
-    this.props.checkInput(e.target.name, false, input);
+  }
+  // Точка входа для события input
+  public onInput(e: Event, context: object) {
+    e.preventDefault();
+    this.onEvents(e, "", context);
+  }
+  // Точка входа для события фокус
+  public onFocus(e: Event, context: object) {
+    e.preventDefault();
+    this.onEvents(e, "", context);
+  }
+  // Точка входа для события блюр
+  public onBlur(e: Event, context: object) {
+    e.preventDefault();
+    this.onEvents(e, "", context);
   }
 
-  public onFocus(e: Event) {
+  public onInputPasswordConfirm(e: Event, context: object) {
     e.preventDefault();
-    let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
-    }
-    this.props.checkInput(e.target.name, false, input);
+    const pwdUp: string = this.getInput("password", context).value;
+    this.onEvents(e, pwdUp, context);
+  }
+  public onFocusPasswordConfirm(e: Event, context: object) {
+    e.preventDefault();
+    const pwdUp: string = this.getInput("password", context).value;
+    this.onEvents(e, pwdUp, context);
   }
 
-  public onBlur(e: Event) {
+  public onBlurPasswordConfirm(e: Event, context: object) {
     e.preventDefault();
-    let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
-    }
-    this.props.checkInput(e.target.name, false, input);
-  }
-
-  public onInputPasswordConfirm(e: Event) {
-    e.preventDefault();
-    const pwdUp = this.props.getInput("password");
-    let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
-    }
-    this.props.checkInput(e.target.name, pwdUp.value, input);
-  }
-  public onFocusPasswordConfirm(e: Event) {
-    e.preventDefault();
-    const pwdUp = this.props.getInput("password");
-    let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
-    }
-
-    this.props.checkInput(e.target.name, pwdUp.value, input);
-  }
-  public onBlurPasswordConfirm(e: Event) {
-    e.preventDefault();
-    const pwdUp = this.props.getInput("password");
-    let input: string;
-    try {
-      input = e.target.attributes.for.value;
-    } catch (error) {
-      input = "button_registor";
-    }
-    this.props.checkInput(e.target.name, pwdUp.value, input);
+    const pwdUp: string = this.getInput("password", context).value;
+    this.onEvents(e, pwdUp, context);
   }
 }
