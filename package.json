@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel src/index.html --no-cache",
     "start": "npx parcel build ./src/index.html --no-cache && node ./app.js",
-    "netlify": "parcel build src/pages/**/*.hbs --no-cache && npm i",
+    "netlify": "parcel build src/index.html --no-cache && npm i",
     "newdev": "parcel src/index.html --no-cache",
     "lint": "eslint ./src/**/*.ts --fix && stylelint ./src/**/*.css --fix"
   },
