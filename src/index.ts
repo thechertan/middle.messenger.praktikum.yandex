@@ -14,7 +14,7 @@ function router(route: string): object {
   if (route === "/profile-change-data") {
     return new ProfileChangeDataPage();
   }
-  if (route === "/login") {
+  if (route === "/login") {   
     return new LoginPage();
   }
   if (route === "/profile") {

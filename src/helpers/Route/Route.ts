@@ -33,6 +33,6 @@ export default class Route {
       return;
     }
 
-    this._block.show();
+    this._block.show();     
   }
 }
