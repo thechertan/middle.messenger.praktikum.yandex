@@ -1,12 +1,21 @@
 .popup__input-profile_label {
-  background-image: url(../../../../image/__upload.svg);
+  font-family: Inter, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #3369f3;
+  text-align: center;
+  text-decoration-line: underline;
   background-repeat: no-repeat;
-  width: 50px;
-  height: 50px;
+  width: 122px;
+  height: 32px;
   cursor: pointer;
   transition: 0.5s;
   margin: 0 auto;
-  padding-bottom: 45px;
+  margin-bottom: 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .popup__input-profile_label:hover {

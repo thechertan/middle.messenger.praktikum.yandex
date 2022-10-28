@@ -1,11 +1,11 @@
 .chat__content-message-time {
   position: absolute;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 9px;
   line-height: 9px;
-  color: #999999;
+  color: #999;
   right: 5px;
-  top: -0px;
+  top: -0;
 }

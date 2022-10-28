@@ -4,7 +4,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .profile__error_input{
+  .profile__error_input {
     left: 67px;
   }
 }

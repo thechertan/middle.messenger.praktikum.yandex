@@ -1,13 +1,12 @@
 .popup__form-submit {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   text-align: center;
   outline: none;
-  border: 0;
   width: 280px;
   align-items: center;
   background: #3369f3;
   border-radius: 8px;
-  color: #ffffff;
+  color: #fff;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
@@ -15,18 +14,18 @@
   cursor: pointer;
   transition: 0.5s;
   padding: 12px 0;
+  border: 1px solid #c4c4c4;
 }
 
 .popup__form-submit:disabled {
-    color: #c4c4c4;
-    background-color: #fff;
-    outline: none;
-    border: 1px solid #c4c4c4;
-    box-sizing: border-box;
-    border-radius: 8px;
-    cursor: default;
+  color: #c4c4c4;
+  background-color: #fff;
+  outline: none;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 8px;
+  cursor: default;
 }
-
 
 .popup__form-submit:hover {
   transition-timing-function: ease-in-out;

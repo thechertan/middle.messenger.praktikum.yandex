@@ -34,12 +34,3 @@ export class ProfileInput extends Block {
     `;
   }
 }
-// {{{Input
-//   onInput=onInput
-//   onBlur=onBlur
-//   onFocus=onFocus
-//   id="{{label}}"
-//   type="{{type}}"
-//   name="{{name}}"
-//   class="register__input"
-// }}}

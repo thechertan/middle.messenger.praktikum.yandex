@@ -1,0 +1,18 @@
+.chat__button-add-chat {
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 12px;
+  text-decoration: none;
+  border: none;
+  color: #999;
+  transition: 0.5s;
+}
+
+.chat__button-add-chat:hover {
+  opacity: 0.5;
+}

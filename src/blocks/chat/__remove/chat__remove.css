@@ -8,6 +8,7 @@
   left: 290px;
   top: -10px;
   transition: 0.5s;
+  cursor: pointer;
 }
 
 .chat__remove:hover {

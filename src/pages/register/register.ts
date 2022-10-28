@@ -1,11 +1,14 @@
+import authAPI from "utils/api/AuthApi";
 import { Block, registerComponent } from "../../core";
-import { Validator } from "../../helpers/Validator/Validator";
+import { Validator } from "../../utils/FormValidator/FormValidator";
 import { Input } from "../../components/login-register/__ready-input/_input";
 import { InputError } from "../../components/login-register/__input-error/index";
 import { Button } from "../../components/login-register/__button";
 import { Link } from "../../components/login-register/__link";
 import { ReadyInput } from "../../components/login-register/__ready-input";
+import Preloader from "../../components/preloader/preloader";
 
+registerComponent(Preloader);
 registerComponent(Input);
 registerComponent(ReadyInput);
 registerComponent(InputError);
@@ -23,7 +26,7 @@ const objectInputs = {
   count: 7,
   modeOneChange: false,
   isButton: true,
-}
+};
 
 const validator = new Validator(objectInputs);
 
@@ -48,6 +51,7 @@ class RegisterPage extends Block {
   onFocus(e: Event) {
     validator.onFocus(e, this);
   }
+
   onBlur(e: Event) {
     validator.onBlur(e, this);
   }
@@ -55,12 +59,17 @@ class RegisterPage extends Block {
   onInputPasswordConfirm(e: Event) {
     validator.onInputPasswordConfirm(e, this);
   }
+
   onFocusPasswordConfirm(e: Event) {
     validator.onFocusPasswordConfirm(e, this);
   }
 
   onBlurPasswordConfirm(e: Event) {
     validator.onBlurPasswordConfirm(e, this);
+  }
+
+  toggleAppLoading(state: boolean) {
+    this.props.store?.dispatch({ isLoading: state });
   }
 
   onSubmit(e: Event) {
@@ -84,19 +93,37 @@ class RegisterPage extends Block {
       "input[name=password]"
     ) as HTMLInputElement;
 
-    console.log({
-      email: inputEmail.value,
-      login: inputLogin.value,
-      first_name: inputFirstName.value,
-      second_name: inputSecondName.value,
-      phone: inputPhone.value,
-      password: inputPassword.value,
-    });
+    this.toggleAppLoading(true);
+    authAPI
+      .signUp({
+        email: inputEmail.value,
+        login: inputLogin.value,
+        first_name: inputFirstName.value,
+        second_name: inputSecondName.value,
+        phone: inputPhone.value,
+        password: inputPassword.value,
+      })
+      .catch(() => {
+        const spanError: HTMLElement | undefined | null =
+          this.element?.querySelector(".register__error_center");
+        if (spanError) {
+          spanError.textContent = "Что то пошло не так!";
+          setTimeout(() => {
+            spanError!.textContent = "";
+          }, 5000);
+        }
+      })
+      .finally(() => {
+        if (this.props.isLoading() === true) {
+          this.toggleAppLoading(false);
+        }
+      });
   }
 
   render(): string {
     return `
   <main class="main">
+  {{#if isLoading}}{{{Preloader}}}{{/if}}
   <section class="register">
   <div class="register__container">
     <h1 class="register__welcome">Регистрация</h1>
@@ -201,17 +228,16 @@ class RegisterPage extends Block {
         text="Зарегистрироваться"
         id='button_registor'
       }}}
-    
       {{{InputError
         text='' 
         className='register__error register__error_center'
        }}}
     </form>
-    {{{Link to='./login.hbs' text='Нет аккаунта?' className='register__link'}}}
+    {{{Link to='/' text='Нет аккаунта?' className='register__link'}}}
 </div>
 </main>
 `;
   }
 }
 
-export { RegisterPage };
+export default RegisterPage;

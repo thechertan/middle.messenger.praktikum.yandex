@@ -1,1 +1,3 @@
-export { ProfilePage } from "./profile";
+import { HOCprofilePage } from "./profileContainer";
+
+export { HOCprofilePage };

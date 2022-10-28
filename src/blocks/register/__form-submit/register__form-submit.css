@@ -1,19 +1,16 @@
 .register__form-submit {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   background-color: #3369f3;
   border-radius: 8px;
   border: none;
-  padding: 12px 0 12px;
+  padding: 12px 0;
   cursor: pointer;
-  margin-bottom: 14px;
   width: 280px;
   margin: 0 auto;
   transition: 0.5s;

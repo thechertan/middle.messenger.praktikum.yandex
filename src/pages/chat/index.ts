@@ -1,1 +1,3 @@
-export { ChatPage } from "./chat";
+import HOCchatPage from "./chatContainer";
+
+export { HOCchatPage };

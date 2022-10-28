@@ -1,7 +1,6 @@
 .chat__name {
-  margin: 0;
   padding: 0;
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 600;
   font-size: 13px;

@@ -10,7 +10,6 @@ interface IinputProps {
   placeholder?: string;
   value?: string;
   name?: string;
-  label?: string;
 }
 
 export class Input extends Block {
@@ -29,7 +28,9 @@ export class Input extends Block {
     <input
     type="{{type}}" 
     name="{{name}}"
-    class="register__input" />
+    id="{{name}}"
+    class="register__input" 
+    />
     `;
   }
 }

@@ -13,25 +13,25 @@
 }
 
 .register__input[type="text"] {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
-  color: #000000;
+  color: #000;
 }
 
 .register__input[type="email"] {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;
   line-height: 13px;
-  color: #000000;
+  color: #000;
 }
 
 .register__input[type="password"] {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 13px;

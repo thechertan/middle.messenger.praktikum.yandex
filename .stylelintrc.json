@@ -1,3 +1,6 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": [
+    "@yandex-cloud/stylelint-config",
+    "@yandex-cloud/stylelint-config/prettier"
+  ]
 }

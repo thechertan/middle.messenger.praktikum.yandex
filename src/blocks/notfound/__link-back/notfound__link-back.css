@@ -1,5 +1,9 @@
 .notfound__link-back {
-  font-family: "Inter", Arial, sans-serif;
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
