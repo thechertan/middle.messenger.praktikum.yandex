@@ -9,7 +9,6 @@ class AuthAPI {
       .signIn({ ...data })
       .then((res) => {
         localStorage.setItem("isAuth", "true");
-        webSocketApi.close();
         window.router.go("/messenger");
         return res;
       })
@@ -31,6 +30,7 @@ class AuthAPI {
     return auth
       .logout()
       .then(() => {
+        webSocketApi.close();
         window.store.dispatch({ isActivChat: false });
         clearLocalStorage();
       })

@@ -28,7 +28,9 @@ class WssMessage {
 
   public close() {
     this.socket?.close();
-    clearInterval(this.interval);
+    setTimeout(() => {
+      clearInterval(this.interval);
+    }, 5000);
   }
 
   private initEventOpen() {

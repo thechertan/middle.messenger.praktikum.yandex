@@ -14,7 +14,7 @@ export class ProfileButtonLogout extends Block {
   render(): string {
     // language=hbs
     return `
-    <button class="profile__link profile__link_red profile__link_btn" onClick=onClick >Выйти</button>
+    <button class="profile__link profile__link_red profile__link_btn" >Выйти</button>
     `;
   }
 }

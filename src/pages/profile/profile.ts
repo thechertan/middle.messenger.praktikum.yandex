@@ -11,7 +11,7 @@ export class ProfilePage extends Block {
   constructor({ ...props }) {
     super({ ...props });
     this.setProps({
-      onClick: (e: MouseEvent) => {
+      onLogout: (e: MouseEvent) => {
         e.preventDefault();
         authAPI.logout();
         window.router.go("/");
@@ -73,7 +73,7 @@ export class ProfilePage extends Block {
       </li>
       <li class="profile__setings-item">
       {{{ProfileButtonLogout
-        onClick=onClick
+        onClick=onLogout
       }}}
       </li>
     </ul>
