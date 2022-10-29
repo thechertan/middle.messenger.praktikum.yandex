@@ -75,7 +75,7 @@ export default class LoginPage extends Block<TLoginPage> {
     const spanButtonError = this.element?.querySelector(
       "#error__button"
     ) as HTMLSpanElement;
-
+    authAPI.logout()
     authAPI
       .signIn({ login: inputLogin.value, password: inputPassword.value })
       .then(() => {
