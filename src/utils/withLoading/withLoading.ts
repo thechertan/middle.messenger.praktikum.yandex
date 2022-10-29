@@ -11,6 +11,7 @@ type WithIsLoading = {
 export default function withIsLoading<P extends WithIsLoading>(
   WrappedBlock: BlockClass<P>
 ) {
+  // @ts-expect-error this is not typed
   return class extends WrappedBlock<P> {
     public static componentName =
       WrappedBlock.componentName || WrappedBlock.name;

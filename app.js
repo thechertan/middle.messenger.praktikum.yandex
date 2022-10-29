@@ -5,7 +5,7 @@ const { PORT = 3000 } = process.env;
 
 const app = express();
 
-app.use(express.static('dist'));
+app.use("/*", express.static('dist'), { index: false });
 
 app.listen(PORT, () => {
   console.log('Server has been started');

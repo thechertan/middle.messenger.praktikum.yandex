@@ -66,7 +66,6 @@ export default class LoginPage extends Block<TLoginPage> {
 
   public onSubmit(e: Event): void {
     e.preventDefault();
-
     const inputLogin = this.element?.querySelector(
       "input[name=login]"
     ) as HTMLInputElement;

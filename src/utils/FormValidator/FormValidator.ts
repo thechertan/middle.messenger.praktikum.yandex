@@ -28,6 +28,7 @@ export class Validator {
   }
 
   public getInput(input: string, context: object): HTMLInputElement {
+    // @ts-expect-error this is not typed
     const inputEl = context.element?.querySelector(
       `input[name=${input}]`
     ) as HTMLInputElement;
@@ -91,7 +92,6 @@ export class Validator {
           result = "Поле не может быть пустым";
         }
         return result;
-
       default:
         if (text.length === 0) {
           result = "Поле не может быть пустым";
@@ -108,18 +108,20 @@ export class Validator {
 
   public checkInput(
     name: string,
-    textPwd: string,
+    textPwd: string | null = "",
     buttonAtribute: string | null,
     context: object
   ): {} {
     const input = this.getInput(name, context);
     const result: string = this.validateInput(name, input.value, textPwd);
+    // @ts-expect-error this is not typed
     const spanError = context.element?.querySelector(
       `#error__${name}`
     ) as HTMLSpanElement;
     if (spanError) {
       spanError.textContent = result;
     }
+    // @ts-expect-error this is not typed
     if (this.inputs.isButton) {
       if (result.length === 0) {
         this.isActiveButton(name, true, buttonAtribute, context);
@@ -135,27 +137,33 @@ export class Validator {
     context: object
   ) {
     let count: number;
+    // @ts-expect-error this is not typed
     if (this.inputs.modeOneChange) {
       count = -3;
     } else {
       count = -2;
     }
+    // @ts-expect-error this is not typed
     const button = context.element?.querySelector(
       `#${buttonAtribute}`
     ) as HTMLButtonElement;
+    // @ts-expect-error this is not typed
     this.inputs[name] = status;
     // eslint-disable-next-line
     for (const value in this.inputs) {
+      // @ts-expect-error this is not typed
       if (this.inputs[value]) {
         // eslint-disable-next-line
         count++;
       }
+      // @ts-expect-error this is not typed
       if (this.inputs.modeOneChange) {
         if (count > 0) {
           button.disabled = false;
         } else {
           button.disabled = true;
         }
+        // @ts-expect-error this is not typed
       } else if (count === this.inputs.count) {
         button.disabled = false;
       } else {
@@ -168,17 +176,19 @@ export class Validator {
   public onEvents(e: Event, inputPwdUp: string | null, context: object) {
     let input: string;
     let name: string;
-    const { target } = e;
+    const target = e.target as HTMLInputElement;
     if (context) {
       if (target) {
         name = target.name;
         if (name) {
+          // @ts-expect-error this is not typed
           if (target.attributes.for) {
+            // @ts-expect-error this is not typed
             input = target.attributes.for.value;
           } else {
             input = "button_registor";
           }
-          this.checkInput(name, (inputPwdUp = ""), input, context);
+          this.checkInput(name, inputPwdUp, input, context);
         } else {
           console.log("У инпута нет id");
         }
@@ -211,6 +221,8 @@ export class Validator {
   public onInputPasswordConfirm(e: Event, context: object) {
     e.preventDefault();
     const pwdUp: string = this.getInput("password", context).value;
+    console.log(pwdUp);
+
     this.onEvents(e, pwdUp, context);
   }
 
