@@ -45,7 +45,9 @@ export class ChatItemUser extends Block {
 
   onClickChat(e: Event) {
     e.preventDefault();
-    const htmEl: HTMLElement = e.currentTarget!.parentNode;
+    const htmEl: HTMLElement = <HTMLElement>(
+      (<HTMLElement>e.currentTarget!).parentNode
+    );
     const id: string | null = htmEl.getAttribute("id");
     if (!id) {
       return;

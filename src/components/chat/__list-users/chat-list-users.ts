@@ -61,10 +61,12 @@ class ChatListUsers extends Block {
 
   onDeleteClick(e: Event) {
     e.preventDefault();
-    const id: string | null =
-      e.target!.parentNode.parentNode.getAttribute("id");
+    const id: string | null = (<HTMLElement>(
+      (<HTMLElement>(<HTMLElement>e.target).parentNode).parentNode
+    )).getAttribute("id");
+
     if (id) {
-      const chatId: string | null = JSON.parse(
+      const chatId: { chatId: string } | null = JSON.parse(
         localStorage.getItem("chatId") as string
       );
       if (chatId) {

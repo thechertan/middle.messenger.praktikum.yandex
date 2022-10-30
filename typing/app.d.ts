@@ -33,6 +33,7 @@ declare global {
 
   type lastMessage = {};
 
+ 
   export type Chat = {
     id: number;
     title: string;

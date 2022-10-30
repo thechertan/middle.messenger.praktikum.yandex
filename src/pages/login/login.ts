@@ -49,7 +49,7 @@ export default class LoginPage extends Block<TLoginPage> {
   }
 
   toggleAppLoading(state: boolean) {
-    this.props.store!.dispatch({ isLoading: state });
+    window.store.dispatch({ isLoading: state });
   }
 
   onInput(e: Event) {
@@ -75,7 +75,7 @@ export default class LoginPage extends Block<TLoginPage> {
     const spanButtonError = this.element?.querySelector(
       "#error__button"
     ) as HTMLSpanElement;
-    authAPI.logout()
+    authAPI.logout();
     authAPI
       .signIn({ login: inputLogin.value, password: inputPassword.value })
       .then(() => {

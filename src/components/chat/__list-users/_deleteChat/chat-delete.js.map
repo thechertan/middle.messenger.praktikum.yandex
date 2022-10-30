@@ -1,0 +1,1 @@
+{"version":3,"file":"chat-delete.js","sourceRoot":"","sources":["chat-delete.ts"],"names":[],"mappings":";;;AAAA,+BAA6B;AAM7B,MAAa,UAAW,SAAQ,YAAK;IAGnC,YAAY,EAAE,aAAa,EAAe;QACxC,KAAK,CAAC,EAAE,MAAM,EAAE,EAAE,KAAK,EAAE,aAAa,EAAE,EAAE,CAAC,CAAC;IAC9C,CAAC;IAED,MAAM;QACJ,OAAO;;;;SAIF,CAAC;IACR,CAAC;;AAbH,gCAcC;AAbQ,wBAAa,GAAG,YAAY,CAAC"}

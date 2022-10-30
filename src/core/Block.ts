@@ -7,11 +7,6 @@ export interface BlockClass<P> extends Function {
   componentName?: string;
 }
 
-interface BlockMeta<P = any> {
-  props: P;
-  isLoading: boolean;
-}
-
 type Events = Values<typeof Block.EVENTS>;
 
 export default class Block<P = any> {
@@ -23,8 +18,6 @@ export default class Block<P = any> {
   } as const;
 
   public id = nanoid(6);
-
-  private readonly _meta: BlockMeta;
 
   protected _element: Nullable<HTMLElement> = null;
 
@@ -41,11 +34,7 @@ export default class Block<P = any> {
   public constructor(props?: P) {
     const eventBus = new EventBus<Events>();
 
-    this._meta = {
-      props,
-    };
-
-    this.getStateFromProps(props);
+    this.getStateFromProps();
 
     this.props = this._makePropsProxy(props || ({} as P));
     this.state = this._makePropsProxy(this.state);
@@ -81,7 +70,9 @@ export default class Block<P = any> {
     this.componentDidMount(props);
   }
 
-  componentDidMount() {}
+  componentDidMount(props: P) {
+    return props;
+  }
 
   _componentDidUpdate() {
     const response = this.componentDidUpdate();
@@ -191,6 +182,7 @@ export default class Block<P = any> {
     }
 
     Object.entries(events).forEach(([event, listener]) => {
+      // @ts-ignore
       this._element!.removeEventListener(event, listener);
     });
   }
@@ -203,6 +195,7 @@ export default class Block<P = any> {
     }
 
     Object.entries(events).forEach(([event, listener]) => {
+      // @ts-ignore
       this._element.addEventListener(event, listener);
     });
   }

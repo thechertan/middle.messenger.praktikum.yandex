@@ -23,14 +23,6 @@ export default class Route {
     }
   }
 
-  leave() {
-    if (this._block) {
-      // TODO Скрываем блок в методе класса блок!
-      this._block.show();
-      
-    }
-  }
-
   match(pathname: string) {
     return isEqual(pathname, this._pathname);
   }
@@ -39,7 +31,6 @@ export default class Route {
     if (!this._block) {
       this._block = new this._blockClass();
       renderDOM(this._block);
-      
     } else {
       renderDOM(this._block);
     }

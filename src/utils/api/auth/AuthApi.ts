@@ -10,7 +10,6 @@ class AuthApi {
         "content-type": "application/json",
         accept: "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -22,20 +21,15 @@ class AuthApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
   async logout(): Promise<any> {
-    return httpFetch.post("/auth/logout", {
-      withCredentials: true,
-    });
+    return httpFetch.post("/auth/logout", {});
   }
 
   async me(): Promise<any> {
-    return httpFetch.get("/auth/user", {
-      withCredentials: true,
-    });
+    return httpFetch.get("/auth/user", {});
   }
 }
 

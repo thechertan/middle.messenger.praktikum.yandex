@@ -108,10 +108,13 @@ export class Validator {
 
   public checkInput(
     name: string,
-    textPwd: string | null = "",
+    textPwd: string | null,
     buttonAtribute: string | null,
     context: object
   ): {} {
+    if (!textPwd) {
+      textPwd = "";
+    }
     const input = this.getInput(name, context);
     const result: string = this.validateInput(name, input.value, textPwd);
     // @ts-expect-error this is not typed

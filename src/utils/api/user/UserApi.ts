@@ -8,7 +8,6 @@ class UsersApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -23,7 +22,6 @@ class UsersApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -34,7 +32,6 @@ class UsersApi {
       headers: {
         accept: "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -43,7 +40,6 @@ class UsersApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -54,7 +50,6 @@ class UsersApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 }

@@ -98,8 +98,12 @@ class ProfileChangeDataPage extends Block<TProfileChangeDataPage> {
     const inputChatName = this.element?.querySelector(
       "input[name=display_name]"
     ) as HTMLInputElement;
-    const button = this.element?.querySelector("#button_registor");
-    const buttonError = this.element?.querySelector(".profile__error_button");
+    const button = this.element?.querySelector(
+      "#button_registor"
+    ) as HTMLButtonElement;
+    const buttonError = this.element?.querySelector(
+      ".profile__error_button"
+    ) as HTMLSpanElement;
 
     const data = {
       email: inputEmail.value,
@@ -123,7 +127,6 @@ class ProfileChangeDataPage extends Block<TProfileChangeDataPage> {
       .catch(() => {
         buttonError!.textContent = "Произошла ошибка попробуйте позже!";
       });
-
     button!.disabled = true;
   }
 
@@ -139,7 +142,8 @@ class ProfileChangeDataPage extends Block<TProfileChangeDataPage> {
     if (e.target) {
       button!.disabled = false;
       const inputElement = e.target as HTMLInputElement;
-      inputLabel!.textContent = inputElement.files[0].name;
+      if (inputElement.files)
+        inputLabel!.textContent = inputElement.files[0].name;
     }
   }
 
@@ -154,6 +158,7 @@ class ProfileChangeDataPage extends Block<TProfileChangeDataPage> {
     ) as HTMLSpanElement;
 
     const formData = new FormData();
+    if (!inputFile.files) return;
     formData.append("avatar", inputFile.files[0]);
     usersApi
       .changeProfileAvatar(formData)

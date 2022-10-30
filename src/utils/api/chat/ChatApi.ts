@@ -24,7 +24,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
 
     return this._checkAnswer(result);
@@ -37,7 +36,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -48,7 +46,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -57,7 +54,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -68,7 +64,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -81,7 +76,6 @@ class ChatApi {
       headers: {
         "content-type": "application/json",
       },
-      withCredentials: true,
     });
   }
 
@@ -92,7 +86,6 @@ class ChatApi {
         headers: {
           "content-type": "application/json",
         },
-        withCredentials: true,
       }
     );
     return this._checkAnswer(result);
@@ -105,7 +98,6 @@ class ChatApi {
       headers: {
         accept: "application/json",
       },
-      withCredentials: true,
     });
   }
 }

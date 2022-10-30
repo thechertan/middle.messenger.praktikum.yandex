@@ -55,7 +55,7 @@ class HTTPTransport {
       headers = {},
       data,
       timeout = 5000,
-      withCredentials = false,
+      withCredentials = true,
     } = options;
 
     // Если метод GET и передана data, трансформировать data в query запрос

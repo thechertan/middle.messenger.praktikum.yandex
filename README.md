@@ -15,3 +15,7 @@
 ### **Ссылка на ветку deploy**
 
 https://nimble-zuccutto-c6b31c.netlify.app/
+
+### **VSC CODE**
+
+https://medium.com/@pglazkov/visual-studio-code-tip-show-typescript-errors-in-entire-project-586bbaa943ac

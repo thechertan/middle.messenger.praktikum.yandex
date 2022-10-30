@@ -41,7 +41,6 @@ export class ProfileChangePassword extends Block {
       onBlurPasswordConfirm: this.onBlurPasswordConfirm.bind(this),
       onSubmit: this.onSubmit.bind(this),
     });
-    console.log(this.props);
   }
 
   onInput(e: Event) {

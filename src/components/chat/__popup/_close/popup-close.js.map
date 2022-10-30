@@ -1,0 +1,1 @@
+{"version":3,"file":"popup-close.js","sourceRoot":"","sources":["popup-close.ts"],"names":[],"mappings":";;;;;;AAAA,mEAA2C;AAO3C,MAAa,UAAW,SAAQ,eAAK;IAGnC,YAAY,EAAE,OAAO,EAAe;QAClC,KAAK,CAAC,EAAE,MAAM,EAAE,EAAE,KAAK,EAAE,OAAO,EAAE,EAAE,CAAC,CAAC;IACxC,CAAC;IAED,MAAM;QACJ,OAAO;;KAEN,CAAC;IACJ,CAAC;;AAXH,gCAYC;AAXQ,wBAAa,GAAG,YAAY,CAAC"}
