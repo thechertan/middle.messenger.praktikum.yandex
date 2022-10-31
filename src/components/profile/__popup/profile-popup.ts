@@ -1,4 +1,4 @@
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { PopupClose } from "./_close/popup-close";
 import { PopupButton } from "./_btn";
 import { PopupInputFile } from "./_inputFile/index";

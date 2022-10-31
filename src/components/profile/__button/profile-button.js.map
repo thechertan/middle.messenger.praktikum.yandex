@@ -1,1 +1,0 @@
-{"version":3,"file":"profile-button.js","sourceRoot":"","sources":["profile-button.ts"],"names":[],"mappings":";;;;;;AAAA,gEAAwC;AAMxC,MAAa,aAAc,SAAQ,eAAK;IAGtC,YAAY,EAAE,OAAO,EAAe;QAClC,KAAK,CAAC,EAAE,MAAM,EAAE,EAAE,KAAK,EAAE,OAAO,EAAE,EAAE,CAAC,CAAC;IACxC,CAAC;IAED,MAAM;QACJ,eAAe;QACf,OAAO;;;;;;;;;KASN,CAAC;IACJ,CAAC;;AAnBH,sCAoBC;AAnBQ,2BAAa,GAAG,eAAe,CAAC"}

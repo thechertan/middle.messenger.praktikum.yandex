@@ -2,7 +2,7 @@ import { PopupOpen } from "utils/PopupOpen/PopupOpen";
 import { webSocketApi } from "utils/api/WssMessage";
 import { chatsAPI } from "utils/api/ChatApi";
 import { userAPI } from "utils/api/UsersApi";
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { Validator } from "../../../utils/FormValidator/FormValidator";
 import { ChatFooter } from "../__footer/chat-footer";
 import { ChatHeaderButtonPopup } from "./_button-popup/chat-button-popup";

@@ -1,4 +1,4 @@
-import { Block } from "../../../../core";
+import { Block } from "core";
 import buttonBack from "../../../../image/__button-back.svg";
 
 interface IChatButtonSend {

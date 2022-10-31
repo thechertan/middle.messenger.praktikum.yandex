@@ -1,5 +1,5 @@
 import authAPI from "utils/api/AuthApi";
-import { Block, registerComponent } from "../../core";
+import { Block, registerComponent } from "core";
 import { Validator } from "../../utils/FormValidator/FormValidator";
 import { Input } from "../../components/login-register/__ready-input/_input";
 import { InputError } from "../../components/login-register/__input-error/index";

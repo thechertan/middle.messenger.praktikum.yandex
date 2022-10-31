@@ -8,7 +8,6 @@ class AuthApi {
       data,
       headers: {
         "content-type": "application/json",
-        accept: "application/json",
       },
     });
   }

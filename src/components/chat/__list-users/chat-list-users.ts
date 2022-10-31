@@ -1,7 +1,7 @@
 import { Validator } from "utils/FormValidator/FormValidator";
 import { PopupOpen } from "utils/PopupOpen/PopupOpen";
 import { chatsAPI } from "utils/api/ChatApi";
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { ChatItemUser } from "./_item/chat-item-user";
 import { ChatDelete } from "./_deleteChat";
 import { ChatAdd } from "./_addChat";

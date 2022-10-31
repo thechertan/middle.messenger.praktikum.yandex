@@ -35,19 +35,34 @@ class HTTPTransport {
   }
 
   public get = (url: string, options = {}): Promise<XMLHttpRequest> =>
-    this.request(url, { ...options, method: METHODS.GET });
+    this.request(url, {
+      ...options,
+      method: METHODS.GET,
+    });
 
   public post = (url: string, options = {}): Promise<XMLHttpRequest> =>
-    this.request(url, { ...options, method: METHODS.POST });
+    this.request(url, {
+      ...options,
+      method: METHODS.POST,
+    });
 
   public put = (url: string, options = {}): Promise<XMLHttpRequest> =>
-    this.request(url, { ...options, method: METHODS.PUT });
+    this.request(url, {
+      ...options,
+      method: METHODS.PUT,
+    });
 
   public patch = (url: string, options = {}): Promise<XMLHttpRequest> =>
-    this.request(url, { ...options, method: METHODS.PATCH });
+    this.request(url, {
+      ...options,
+      method: METHODS.PATCH,
+    });
 
   public delete = (url: string, options = {}): Promise<XMLHttpRequest> =>
-    this.request(url, { ...options, method: METHODS.DELETE });
+    this.request(url, {
+      ...options,
+      method: METHODS.DELETE,
+    });
 
   private request = (url: string, options: TRequestOptions): any => {
     const {

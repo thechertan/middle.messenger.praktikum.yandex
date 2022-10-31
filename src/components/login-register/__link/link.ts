@@ -1,4 +1,4 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 
 interface LinkProps {
   text: string;

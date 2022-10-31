@@ -1,4 +1,4 @@
-import Block from "../../../core/Block";
+import { Block } from "core";
 import defaultAvatar from "../../../image/defaultAvatar.png";
 
 interface ProfileChangeAvatarProps {

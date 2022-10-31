@@ -1,6 +1,6 @@
 import { ProfileButtonLogout } from "components/profile/__button/_button-logout";
 import authAPI from "utils/api/AuthApi";
-import { Block, registerComponent } from "../../core";
+import { Block, registerComponent } from "core";
 import defaultAvatar from "../../image/defaultAvatar.png";
 
 registerComponent(ProfileButtonLogout);

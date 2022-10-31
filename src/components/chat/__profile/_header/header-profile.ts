@@ -1,4 +1,4 @@
-import { Block } from "core";
+import Block from "core/Block";
 
 interface IProfileHeader {
   img?: string;
@@ -10,9 +10,6 @@ export class HeaderProfile extends Block {
 
   constructor({ ...porps }: IProfileHeader) {
     super({ ...porps });
-    this.setProps({
-
-    });
   }
 
   render(): string {

@@ -29,6 +29,7 @@ async function allSettled(): Promise<void> {
       if (promis.status !== "resolved") {
         const isAuth: string | null = localStorage.getItem("isAuth");
         if (isAuth) {
+          localStorage.removeItem("isAuth");
           authAPI.logout();
         }
         return promis;

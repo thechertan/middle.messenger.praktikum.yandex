@@ -10,6 +10,8 @@ class AuthAPI {
       .then((res) => {
         localStorage.setItem("isAuth", "true");
         window.router.go("/messenger");
+        console.log(res);
+        
         return res;
       })
       .catch((err) => err);

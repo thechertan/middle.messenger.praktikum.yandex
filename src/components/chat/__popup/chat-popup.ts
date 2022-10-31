@@ -1,4 +1,4 @@
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { PopupClose } from "./_close/popup-close";
 
 import "./chat-popup.css";
