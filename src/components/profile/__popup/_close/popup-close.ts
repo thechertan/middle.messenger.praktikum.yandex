@@ -1,19 +1,20 @@
-import Block from "../../../../core/Block";
+import Block from "core/Block";
 
 interface IPopupClose {
   onClick?: () => void;
+  for?: string;
 }
 
 export class PopupClose extends Block {
   static componentName = "PopupClose";
 
-  constructor({ onClick }: IPopupClose) {
-    super({ events: { click: onClick } });
+  constructor({ onClick, ...props }: IPopupClose) {
+    super({ ...props, events: { click: onClick } });
   }
 
   render(): string {
     return `
-      <button  class="popup__button-close" name="close" type="button"></button>
+      <button  {{#if for}}for='{{for}}'{{/if}} class="popup__button-close" name="close" type="button"></button>
     `;
   }
 }

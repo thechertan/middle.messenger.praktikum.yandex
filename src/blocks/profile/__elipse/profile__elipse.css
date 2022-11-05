@@ -1,13 +1,10 @@
 .profile__elipse {
   width: 130px;
   height: 130px;
-  background-color: #efefef;
+  object-fit: cover;
   border-radius: 50%;
-  background-image: url(../../../image/__avatar-default.svg);
-  background-repeat: no-repeat;
-  background-position: center !important;
   margin: 60px auto 21px;
   transition: 0.5s;
-  color: #ffffff;
+  color: #fff;
   display: block;
 }

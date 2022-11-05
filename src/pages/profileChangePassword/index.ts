@@ -1,1 +1,3 @@
-export { ProfileChangePassword } from './profileChangePassword';
+import { HOCProfileChangePassword } from "./profileChangePasswordContainer";
+
+export { HOCProfileChangePassword };

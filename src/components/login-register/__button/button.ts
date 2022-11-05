@@ -1,4 +1,4 @@
-import Block from "../../../core/Block";
+import { Block } from "core";
 
 // import "./button.css";
 
@@ -10,7 +10,7 @@ interface ButtonProps {
 }
 
 export class Button extends Block {
-  static componentName = 'Button'
+  static componentName = "Button";
 
   constructor({ className, text, id, onClick }: ButtonProps) {
     super({ className, text, id, events: { click: onClick } });

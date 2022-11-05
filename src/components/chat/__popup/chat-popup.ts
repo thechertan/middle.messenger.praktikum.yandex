@@ -1,4 +1,4 @@
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { PopupClose } from "./_close/popup-close";
 
 import "./chat-popup.css";
@@ -40,7 +40,7 @@ export class ChatPopup extends Block {
                 Поменять
               </button>
               <div class="popup__span-error">
-                <span class="popup__error">Нужно выбрать файл</span>
+                <span class="popup__error"></span>
               </div>
             </fieldset>
           </form>

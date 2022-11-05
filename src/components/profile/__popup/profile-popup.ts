@@ -1,10 +1,17 @@
-import { Block, registerComponent } from "../../../core";
+import { Block, registerComponent } from "core";
 import { PopupClose } from "./_close/popup-close";
+import { PopupButton } from "./_btn";
+import { PopupInputFile } from "./_inputFile/index";
 
+registerComponent(PopupInputFile);
 registerComponent(PopupClose);
+registerComponent(PopupButton);
 
 interface IprofilePopup {
   onClick?: () => void;
+  onSubmitPopup?: () => void;
+  onInputFile?: () => void;
+  idName?: string;
 }
 
 export class ProfilePopup extends Block {
@@ -18,27 +25,25 @@ export class ProfilePopup extends Block {
     // language=hbs
     return `
     <!--Чтобы открыть попап нужно добавить клас  popup_opened-->
-    <div class="popup" id='popup_type-edit-avatar'>
+    <div class="popup" for="{{idName}}" id='popup_type-edit-avatar'>
       <div class="popup__container">
         {{{PopupClose
           onClick=onClick
+          for=idName
         }}}  
         <div class="popup__content">
               <h2 class="popup__title">Загрузите файл</h2>
           <form class="popup__form popup_type-edit-avatar" name="popupForm-edit">
             <fieldset class="popup__fieldset">
-              <input
-              class="popup__input-profile"
-              type="file"
-              name="avatar"
-              id="file"
-              />
-              <label class="popup__input-profile_label" for="file"></label>
-              <button type="submit" name="save" class="popup__form-submit">
-                Поменять
-              </button>
+            {{{PopupInputFile
+              onInputFile=onInputFile     
+            }}}
+              <label class="popup__input-profile_label" for="file">Выбрать файл на компьютере</label>
+              {{{PopupButton
+                onSubmitPopup=onSubmitPopup
+              }}}
               <div class="popup__span-error">
-                <span class="popup__error">Нужно выбрать файл</span>
+                <span class="popup__error popup__errror_change-chat-avatar"></span>
               </div>
             </fieldset>
           </form>

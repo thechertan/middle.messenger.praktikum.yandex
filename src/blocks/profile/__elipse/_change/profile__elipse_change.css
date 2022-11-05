@@ -1,6 +1,6 @@
 .profile__elipse_change:hover {
   cursor: pointer;
   transition-timing-function: ease-in-out;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgb(0 0 0 / 100%);
   opacity: 0.6;
 }

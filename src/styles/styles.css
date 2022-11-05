@@ -1,19 +1,32 @@
-
-
 /* libraries */
+
 @import "./vendor/normalize.css";
 @import "./vendor/fonts.css";
+
 /* Main Page */
+
 @import "../blocks/main/main.css";
+
 /* Login Page */
+
 @import "../pages/login/login.css";
+
 /* Register Page */
+
 @import "../pages/register/register.css";
+
 /* Profile Page */
+
 @import "../pages/profile/profile.css";
+
 /* ProfieChangeSettings Page  */
+
 @import "../pages/profileChangeData/profileChangeData.css";
+
 /* NotFound Page */
+
 @import "../pages/notFound/notfound.css";
+
 /* Chat Page */
+
 @import "../pages/chat/chat.css";

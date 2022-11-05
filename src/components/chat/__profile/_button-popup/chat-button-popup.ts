@@ -1,4 +1,4 @@
-import { Block } from "../../../../core";
+import { Block } from "core";
 import threeDot from "../../../../image/__three_dot.svg";
 
 

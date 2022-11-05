@@ -5,4 +5,5 @@
   flex-direction: column;
   width: 193px;
   margin-left: 10px;
+  cursor: pointer;
 }

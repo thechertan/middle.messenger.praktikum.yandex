@@ -19,6 +19,7 @@ interface IChatUserButtonPopup {
   textButton: string;
   idInput?: string;
   idButton?: string;
+  nameLabel?: string;
 }
 
 export class PopupUser extends Block {
@@ -58,9 +59,15 @@ export class PopupUser extends Block {
           novalidate
         >
           <fieldset class="popup__fieldset">
+          {{#if nameLabel}}     
             <label class="popup__label-chat" for="login">
-              Логин
+            {{nameLabel}}
             </label>
+          {{else}}
+            <label class="popup__label-chat" for="login">
+            Логин
+          </label>
+           {{/if}}
             {{{InputChatPopup
               type='text'
               name=idInput
@@ -74,7 +81,7 @@ export class PopupUser extends Block {
             onSubmit=onSubmit
             }}}
             <div  class="popup__span-error">
-              <span  id='error__{{idInput}}' class="popup__error">Нужно ввести логин</span>
+              <span  id='error__{{idInput}}' class="popup__error"></span>
             </div>
           </fieldset>
         </form>

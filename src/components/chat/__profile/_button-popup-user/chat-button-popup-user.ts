@@ -1,11 +1,13 @@
 import { Block } from "core";
 import sum from "image/__sum.svg";
+import avatar from "image/avatarChat.svg";
 
 interface IChatUserButtonPopup {
   onPopup?: () => void;
   for?: string;
   class?: string;
   text?: string;
+  ico?: string;
 }
 
 export class ChatUserButtonPopup extends Block {
@@ -23,7 +25,12 @@ export class ChatUserButtonPopup extends Block {
     <li for='{{for}}' class="chat__options-item">
         <img
           for='{{for}}'
-          src="${sum}"
+          {{#if ico}} 
+          src="${avatar}" 
+          {{else}} 
+          src="${sum}
+          "{{/if}}
+         
           alt="Плюс"
           class="{{class}}"
         />

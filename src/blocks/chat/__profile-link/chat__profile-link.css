@@ -1,0 +1,10 @@
+.chat__profile-link {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.chat__profile-link:hover {
+  opacity: 0.5;
+}

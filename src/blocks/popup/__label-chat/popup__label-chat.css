@@ -1,12 +1,12 @@
 .popup__label-chat {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   margin: 0;
   padding: 0;
   font-style: normal;
   font-weight: 500;
   font-size: 9px;
   line-height: 9px;
-  color: #999999;
+  color: #999;
   margin-top: 7px;
   margin-bottom: 8px;
   cursor: pointer;

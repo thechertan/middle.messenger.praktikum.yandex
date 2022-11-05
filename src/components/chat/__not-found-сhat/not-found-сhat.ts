@@ -1,4 +1,4 @@
-import { Block } from "../../../core";
+import { Block } from "core";
 
 import "./not-found-сhat.css";
 

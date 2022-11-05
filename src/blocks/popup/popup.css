@@ -5,7 +5,7 @@
   left: 0;
   right: 0;
   z-index: 1;
-  color: black;
+  color: #000000;
   background-color: rgb(0 0 0 / 50%);
   display: flex;
   visibility: hidden;

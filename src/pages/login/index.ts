@@ -1,1 +1,3 @@
-export { LoginPage } from "./login";
+import HOCPLoginPage from "./loginContainer";
+
+export default HOCPLoginPage;

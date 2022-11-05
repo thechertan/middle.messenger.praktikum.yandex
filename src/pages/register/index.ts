@@ -1,1 +1,3 @@
-export { RegisterPage } from "./register";
+import HOCPRegisterPage from "./registerContainer";
+
+export default HOCPRegisterPage;

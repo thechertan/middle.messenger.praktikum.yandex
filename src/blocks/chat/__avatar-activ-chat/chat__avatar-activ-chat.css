@@ -1,0 +1,7 @@
+.chat__avatar-activ-chat {
+  width: 37px;
+  height: 37px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}

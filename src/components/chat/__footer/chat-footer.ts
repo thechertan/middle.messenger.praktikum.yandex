@@ -1,11 +1,11 @@
 import { Block, registerComponent } from "core";
-
-import { PopupOpen } from "helpers/PopupOpen/PopupOpen";
-import { Validator } from "helpers/Validator/Validator";
-
+import { PopupOpen } from "utils/PopupOpen/PopupOpen";
+import { Validator } from "utils/FormValidator/FormValidator";
 import photoOrVideo from "image/__photo_or_video.svg";
 import fileSend from "image/__file-send.png";
 import locationSend from "image/__location-send.svg";
+import { webSocketApi } from "utils/api/WssMessage";
+import { chatsAPI } from "utils/api/ChatApi";
 import { ChatFooterInput } from "./_input";
 import { ChatFooterButtonPopup } from "./_button-popup";
 import { ChatButtonSend } from "./_button-send";
@@ -40,7 +40,6 @@ class ChatFooter extends Block {
     });
   }
 
-
   onInput(e: Event) {
     validator.onInput(e, this);
   }
@@ -48,13 +47,18 @@ class ChatFooter extends Block {
   onFocus(e: Event) {
     validator.onFocus(e, this);
   }
+
   onBlur(e: Event) {
     validator.onBlur(e, this);
   }
 
   onSubmit(e: Event) {
     e.preventDefault();
-    console.log("work");
+    const inputEl = this.element?.querySelector(
+      "input[name=message]"
+    ) as HTMLInputElement;
+    webSocketApi.sendMessage(inputEl.value);
+    chatsAPI.getChats();
   }
 
   render(): string {
@@ -68,7 +72,7 @@ class ChatFooter extends Block {
             <img
               src="${photoOrVideo}"
               alt="Плюс"
-              class=" chat__button-icon_fix"
+              class="chat__button-icon_fix"
             />
             <p class="chat__options-text">Фото или Видео</p>
           </li>
@@ -91,10 +95,7 @@ class ChatFooter extends Block {
         </ul>
       </div>
     </div>
-    {{{ChatFooterButtonPopup
-      for='footer__popup'
-      onPopup=popupOpen
-    }}}
+
     {{{ChatFooterInput
       onInput=onInput
       onBlur=onBlur
@@ -103,7 +104,7 @@ class ChatFooter extends Block {
     {{{ChatButtonSend
       onClick=onSubmit
     }}}
-    </button>
+    
   </div>
 </div>
     `;
@@ -111,3 +112,9 @@ class ChatFooter extends Block {
 }
 
 export { ChatFooter };
+
+// TODO отправка файлов
+// {{{ChatFooterButtonPopup
+//   for='footer__popup'
+//   onPopup=popupOpen
+// }}}

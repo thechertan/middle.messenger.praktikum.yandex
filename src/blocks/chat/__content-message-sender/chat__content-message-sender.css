@@ -4,7 +4,6 @@
   max-width: 391px;
   min-width: 50px;
   margin: 0 auto 0 1px;
-  padding: 0;
   background-color: #f8f8f8;
   padding: 11px;
   border-bottom-right-radius: 12px;
@@ -13,6 +12,6 @@
   margin-bottom: 10px;
 }
 
-.chat__content-message-sender:last-of-type {
-  margin-bottom: 0;
+.chat__content-message-sender:first-of-type {
+  margin-bottom: 5px;
 }

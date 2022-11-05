@@ -1,1 +1,3 @@
-export { ProfileChangeDataPage } from "./profileChangeData";
+import { HOCProfileChangeDataPage } from "./profileChangeDatapageContainer";
+
+export { HOCProfileChangeDataPage };

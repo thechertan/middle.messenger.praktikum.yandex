@@ -2,8 +2,9 @@ import { nanoid } from "nanoid";
 import Handlebars from "handlebars";
 import EventBus from "./EventBus";
 
-interface BlockMeta<P = any> {
-  props: P;
+export interface BlockClass<P> extends Function {
+  new (props: P): Block<P>;
+  componentName?: string;
 }
 
 type Events = Values<typeof Block.EVENTS>;
@@ -17,8 +18,6 @@ export default class Block<P = any> {
   } as const;
 
   public id = nanoid(6);
-
-  private readonly _meta: BlockMeta;
 
   protected _element: Nullable<HTMLElement> = null;
 
@@ -35,11 +34,7 @@ export default class Block<P = any> {
   public constructor(props?: P) {
     const eventBus = new EventBus<Events>();
 
-    this._meta = {
-      props,
-    };
-
-    this.getStateFromProps(props);
+    this.getStateFromProps();
 
     this.props = this._makePropsProxy(props || ({} as P));
     this.state = this._makePropsProxy(this.state);
@@ -75,10 +70,12 @@ export default class Block<P = any> {
     this.componentDidMount(props);
   }
 
-  componentDidMount() {}
+  componentDidMount(props: P) {
+    return props;
+  }
 
-  _componentDidUpdate(oldProps: P, newProps: P) {
-    const response = this.componentDidUpdate(oldProps, newProps);
+  _componentDidUpdate() {
+    const response = this.componentDidUpdate();
     if (!response) {
       return;
     }
@@ -147,7 +144,7 @@ export default class Block<P = any> {
     // Можно и так передать this
     // Такой способ больше не применяется с приходом ES6+
     const self = this;
-
+    let waitSet = false;
     return new Proxy(props as unknown as object, {
       get(target: Record<string, unknown>, prop: string) {
         const value = target[prop];
@@ -155,10 +152,16 @@ export default class Block<P = any> {
       },
       set(target: Record<string, unknown>, prop: string, value: unknown) {
         target[prop] = value;
-
         // Запускаем обновление компоненты
         // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        if (!waitSet) {
+          waitSet = true;
+          setTimeout(() => {
+            self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+            waitSet = false;
+          }, 10);
+        }
+
         return true;
       },
       deleteProperty() {
@@ -178,8 +181,9 @@ export default class Block<P = any> {
       return;
     }
 
-    Object.entries(events).forEach(([event, listener]) => {   
-        this._element!.removeEventListener(event, listener);
+    Object.entries(events).forEach(([event, listener]) => {
+      // @ts-ignore
+      this._element!.removeEventListener(event, listener);
     });
   }
 
@@ -191,7 +195,8 @@ export default class Block<P = any> {
     }
 
     Object.entries(events).forEach(([event, listener]) => {
-      this._element!.addEventListener(event, listener);
+      // @ts-ignore
+      this._element.addEventListener(event, listener);
     });
   }
 
@@ -244,13 +249,5 @@ export default class Block<P = any> {
      * Возвращаем фрагмент
      */
     return fragment.content;
-  }
-
-  show() {
-    this.getContent().style.display = "block";
-  }
-
-  hide() {
-    this.getContent().style.display = "none";
   }
 }

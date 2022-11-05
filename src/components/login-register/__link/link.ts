@@ -1,4 +1,4 @@
-import Block from "../../../core/Block";
+import Block from "core/Block";
 
 interface LinkProps {
   text: string;
@@ -12,12 +12,12 @@ export class Link extends Block {
   constructor(props: LinkProps) {
     const onClick = (e: MouseEvent) => {
       e.preventDefault();
-      console.log("./register")
+      window.router.go(this.props.to);
     };
     super({ ...props, events: { click: onClick } });
   }
 
   render() {
-    return `<a class='{{className}}' href="{{to}}">{{text}} </a>`;
+    return `<a class='{{className}}' href="{{to}}">{{text}}</a>`;
   }
 }

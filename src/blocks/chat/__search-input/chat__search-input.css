@@ -1,7 +1,5 @@
 .chat__search-input {
   height: 32px;
-  margin: 0;
-
   outline: none;
   border: none;
   padding-bottom: 6px;
@@ -13,7 +11,7 @@
 }
 
 .chat__search-input[type="text"] {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -23,16 +21,16 @@
 }
 
 .chat__search-input::placeholder {
-  font-family: "Inter", Arial, sans-serif;
+  font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
   line-height: 12px;
-  color: #999999;
+  color: #999;
   text-align: center;
   align-items: center;
 }
 
-.chat__search-input[type="text"]:focus~.chat__search-ico_active {
+.chat__search-input[type="text"]:focus ~ .chat__search-ico_active {
   left: 10px;
 }
