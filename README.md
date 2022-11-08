@@ -48,3 +48,8 @@ npm run lint
 ```bash
 npm run test
 ```
+Запуск проекта
+
+```bash
+npm run start
+```

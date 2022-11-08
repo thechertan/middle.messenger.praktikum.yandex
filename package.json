@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "start": "webpack && node ./app.js",
     "build": "rimraf dist && webpack && node ./app.js",
     "dev": "webpack serve",
     "lint": "eslint ./src/**/*.ts --fix && stylelint ./src/**/*.css --fix",
