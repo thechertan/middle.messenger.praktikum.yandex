@@ -6,7 +6,8 @@
     "build": "rimraf dist && webpack && node ./app.js",
     "dev": "webpack serve",
     "lint": "eslint ./src/**/*.ts --fix && stylelint ./src/**/*.css --fix",
-    "test": "jest"
+    "test": "jest",
+    "validate": "npm ls"
   },
   "alias": {
     "core": "./src/core",
@@ -52,6 +53,7 @@
     "postcss": "8.4.18",
     "postcss-import": "12.0.1",
     "postcss-loader": "7.0.1",
+    "precommit-hook": "^3.0.0",
     "sinon": "^14.0.2",
     "stylelint": "14.13.0",
     "ts-loader": "9.4.1",
@@ -85,5 +87,8 @@
       "^pages(.*)$": "<rootDir>/src/pages$1",
       "^tests(.*)$": "<rootDir>/src/tests$1"
     }
-  }
+  },
+  "pre-commit": [
+    "test"
+  ]
 }
