@@ -1,6 +1,6 @@
 import clearLocalStorage from "helpers/clearLocalStorage";
 import { auth } from "./auth";
-import { SignupOptions } from "./types/api";
+import { SignupOptions } from "./types";
 import { webSocketApi } from "./WssMessage";
 
 class AuthAPI {
@@ -11,7 +11,7 @@ class AuthAPI {
         localStorage.setItem("isAuth", "true");
         window.router.go("/messenger");
         console.log(res);
-        
+
         return res;
       })
       .catch((err) => err);

@@ -91,7 +91,7 @@ class ChatApi {
     return this._checkAnswer(result);
   }
 
-  changeChatAvatar(file: any): Promise<any> {
+  changeChatAvatar(file: FormData): Promise<any> {
     const data = file;
     return httpFetch.put("/chats/avatar", {
       data,

@@ -152,8 +152,6 @@ export default class Block<P = any> {
       },
       set(target: Record<string, unknown>, prop: string, value: unknown) {
         target[prop] = value;
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
         if (!waitSet) {
           waitSet = true;
           setTimeout(() => {

@@ -1,4 +1,4 @@
-import { usersApi } from "./user/index";
+import { usersApi } from "./user";
 
 class UserAPI {
   searchUsers(login: string): Promise<any> {

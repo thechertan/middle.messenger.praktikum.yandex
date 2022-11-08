@@ -12,6 +12,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js"]}],
     "no-underscore-dangle": "off",
     "prefer-promise-reject-errors": "error",
     "no-console": "off",
