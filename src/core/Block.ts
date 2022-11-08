@@ -6,7 +6,7 @@ export interface BlockClass<P> extends Function {
   new (props: P): Block<P>;
   componentName?: string;
 }
-
+export type Component = typeof Block;
 type Events = Values<typeof Block.EVENTS>;
 
 export default class Block<P = any> {
@@ -21,7 +21,7 @@ export default class Block<P = any> {
 
   protected _element: Nullable<HTMLElement> = null;
 
-  protected readonly props: P;
+  readonly props: P;
 
   protected children: { [id: string]: Block } = {};
 
@@ -152,8 +152,6 @@ export default class Block<P = any> {
       },
       set(target: Record<string, unknown>, prop: string, value: unknown) {
         target[prop] = value;
-        // Запускаем обновление компоненты
-        // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
         if (!waitSet) {
           waitSet = true;
           setTimeout(() => {
