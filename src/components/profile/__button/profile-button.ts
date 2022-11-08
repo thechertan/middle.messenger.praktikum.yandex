@@ -1,27 +1,19 @@
 import { Block } from "core";
 
 interface ButtonProps {
-  onClick: () => void;
+  onClick?: () => void;
+  className?: string;
 }
 
 export class ProfileButton extends Block {
   static componentName = "ProfileButton";
 
-  constructor({ onClick }: ButtonProps) {
-    super({ events: { click: onClick } });
+  constructor({ onClick, ...props }: ButtonProps) {
+    super( { events: { click: onClick }, ...props });
   }
 
   render(): string {
     // language=hbs
-    return `
-    <button
-      type="submit"
-      name="save"
-      class="profile__form-submit"
-      id='button_registor'
-      disabled
-    >Сохранить
-    </button>
-    `;
+    return `<button data-testid="custom-element" type="submit" name="save" class="{{#if className}}{{className}}{{else}}profile__form-submit{{/if}}" id="button_registor" disabled>Сохранить</button>`;
   }
 }
